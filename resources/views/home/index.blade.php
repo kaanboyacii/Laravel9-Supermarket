@@ -11,7 +11,7 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>Categoriler</span>
+                            <span>Kategoriler</span>
                         </div>
                         <ul>
                             <li><a href="#">Temel Gıda</a></li>
@@ -51,11 +51,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{asset('assets')}}/img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="{{asset('assets')}}/img/hero/banner2.jpg">
                         <div class="hero__text">
                             <span>Hızlı Teslimat</span>
                             <h2>En Ekonomik <br />En Kaliteli Ürünler</h2>
-                            <p>30 dk içerisinde kapınızda</p>
                             <a href="#" class="primary-btn">Alışverişe Başla</a>
                         </div>
                     </div>
