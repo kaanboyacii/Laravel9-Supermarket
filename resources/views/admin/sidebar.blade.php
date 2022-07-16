@@ -17,15 +17,8 @@
                                     <li><a href="index3.html">SEO dashboard</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                        Types
-                                    </span></a>
-                                <ul class="collapse">
-                                    <li><a href="index.html">Left Sidebar</a></li>
-                                    <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{route('admin.category.index')}}"><i class="ti-map-alt"></i> <span>Kategoriler</span></a></li>
+
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
                                 <ul class="collapse">
