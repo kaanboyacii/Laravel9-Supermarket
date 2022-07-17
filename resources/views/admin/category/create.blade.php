@@ -16,6 +16,15 @@
                             <form role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data" class="forms-sample">
                                 @csrf
                                 <div class="form-group">
+                                    <label for="">Üst Kategori</label>
+                                    <select name="parent_id" class="form-control select2">
+                                        <option value="0" selected="selected">Main Category</option>
+                                        @foreach($data as $rs)
+                                        <option value="{{$rs->id}}"> {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputName1">Başlık</label>
                                     <input type="text" class="form-control" id="exampleInputName1" placeholder="Başlık" name="title">
                                 </div>

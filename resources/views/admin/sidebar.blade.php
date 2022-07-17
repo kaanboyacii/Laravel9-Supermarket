@@ -17,7 +17,8 @@
                                     <li><a href="index3.html">SEO dashboard</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{route('admin.category.index')}}"><i class="ti-map-alt"></i> <span>Kategoriler</span></a></li>
+                            <li><a href="{{route('admin.category.index')}}"><i class="ti-layout-grid2"></i> <span>Kategoriler</span></a></li>
+                            <li><a href="{{route('admin.product.index')}}"><i class="ti-package"></i> <span>Ürünler</span></a></li>
 
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>

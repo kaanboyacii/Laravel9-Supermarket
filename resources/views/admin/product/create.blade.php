@@ -1,10 +1,8 @@
 @extends('layouts.adminbase')
 
-@section('title', 'İz Market Admin Panel')
+@section('title', 'Ürün Oluştur')
 
 @section('content')
-
-
 <div class="main-content-inner">
     <!-- row area start -->
     <div class="row">
@@ -14,29 +12,44 @@
                 <div class="col-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Kategori Düzenle</h4>
-                            <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                            <h4 class="header-title">Ürün Oluştur</h4>
+                            <form role="form" action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data" class="forms-sample">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="">Parent Category</label>
-                                    <select name="parent_id" class="form-control select2">
-                                        <option value="0" selected="selected"></option>
-                                        @foreach($datalist as $rs)
+                                    <label for="">Üst Ürün</label>
+                                    <select name="category_id" class="form-control select2">
+                                        @foreach($data as $rs)
                                         <option value="{{$rs->id}}"> {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }} </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Başlık</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="{{$data->title}}" name="title">
+                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Başlık" name="title">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Anahtar Kelimeler</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="{{$data->keywords}}" name="keywords">
+                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Anahtar Kelimeler" name="keywords">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Açıklama</label>
-                                    <input type="Description" class="form-control" id="exampleInputName1" value="{{$data->description}}" name="description">
+                                    <input type="Description" class="form-control" id="exampleInputName1" placeholder="Açıklama" name="description">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Detay</label>
+                                    <input type="Description" class="form-control" id="exampleInputName1" placeholder="Detay" name="detail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Fiyat</label>
+                                    <input type="number" class="form-control" id="exampleInputName1" placeholder="Fiyat" name="price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Stok</label>
+                                    <input type="number" class="form-control" id="exampleInputName1" placeholder="Stok" name="quantity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Vergi</label>
+                                    <input type="number" class="form-control" id="exampleInputName1" placeholder="Vergi" name="tax">
                                 </div>
                                 <div class="form-group">
                                     <label>Fotoğraf Yükleme</label>
@@ -48,12 +61,11 @@
                                 <div class="form-group">
                                     <label for="exampleSelectGender">Durum</label>
                                     <select name="status" class="form-control">
-                                        <option selected>"{{$data->status}}"</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="pasif">Pasif</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-warning me-2">Bilgileri Güncelle</button>
+                                <button type="submit" class="btn btn-warning me-2">Oluştur</button>
                             </form>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
+use App\Http\Controllers\AdminPanel\ProductController as AdminProductController;
 use Illuminate\Http\Request;
 
 /*
@@ -130,7 +131,7 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
         Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
         Route::post('/setting', [AdminHomeController::class, 'settingupdate'])->name('settingupdate');
     //ADMIN CATEGORY ROUTES
-        Route::prefix('/kategori')->name('category.')->controller(AdminCategoryController::class)->group(function() {
+        Route::prefix('/kategoriler')->name('category.')->controller(AdminCategoryController::class)->group(function() {
             Route::get('/', 'index')->name('index');
             Route::get('/oluştur','create')->name('create');
             Route::post('/store','store')->name('store');
@@ -139,15 +140,15 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
             Route::get('/detay/{id}','show')->name('show');
             Route::get('/kaldır/{id}','destroy')->name('delete');
         });
-        //ADMIN SERVICE ROUTES
-        Route::prefix('/service')->name('service.')->controller(AdminServiceController::class)->group(function() {
-            Route::get('/', [AdminServiceController::class, 'index'])->name('index');
-            Route::get('/create','create')->name('create');
+        //ADMIN PRODUCT ROUTES
+        Route::prefix('/ürünler')->name('product.')->controller(AdminProductController::class)->group(function() {
+            Route::get('/', [AdminProductController::class, 'index'])->name('index');
+            Route::get('/oluştur','create')->name('create');
             Route::post('/store','store')->name('store');
-            Route::get('/edit/{id}','edit')->name('edit');
+            Route::get('/düzenle/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
-            Route::get('/show/{id}','show')->name('show');
-            Route::get('/delete/{id}','destroy')->name('delete');
+            Route::get('/detay/{id}','show')->name('show');
+            Route::get('/kaldır/{id}','destroy')->name('delete');
         });
         //ADMIN IMAGE GALLERY ROUTES
         Route::prefix('/image')->name('image.')->controller(AdminImageController::class)->group(function() {

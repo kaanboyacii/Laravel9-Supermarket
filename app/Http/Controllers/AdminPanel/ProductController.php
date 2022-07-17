@@ -4,26 +4,14 @@ namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\file;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-
-class CategoryController extends Controller
+class ProductController extends Controller
 {
-    protected $appends=[
-        'getParentsTree'
-    ];
-    public static function getParentsTree($category,$title){
-        if($category->parent_id == 0)
-        {
-            return $title;
-        }
-        $parent = Category::find($category->parent_id);
-        $title=$parent->title.'>'.$title;
-        return CategoryController::getParentsTree($parent,$title);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -31,9 +19,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data=Category::all();
-        return view('admin.category.index',[
-            'data'=> $data
+        $data = Product::all();
+        return view('admin.product.index', [
+            'data' => $data
         ]);
     }
 
@@ -44,9 +32,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $data=Category::all();
-        return view('admin.category.create',[
-            'data'=> $data
+        $data = Category::all();
+        return view('admin.product.create', [
+            'data' => $data
         ]);
     }
 
@@ -58,16 +46,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data= new Category();
+        $data = new Product();
+        $data->category_id = $request->category_id;
+        $data->user_id = $request->user_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
+        $data->detail = $request->detail;
+        $data->price = $request->price;
+        $data->quantity = $request->quantity;
+        $data->tax = $request->tax;
         $data->status = $request->status;
-        if($request->file('image')){
-            $data->image= $request->file('image')->store('images');
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/kategoriler');
+        return redirect('admin/ürünler');
     }
 
     /**
@@ -76,11 +70,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category,$id)
+    public function show(product $product, $id)
     {
-        $data=Category::find($id);
-        return view('admin.category.show',[
-            'data'=> $data
+        $data = Product::find($id);
+        return view('admin.product.show', [
+            'data' => $data
         ]);
     }
 
@@ -90,15 +84,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category,$id)
+    public function edit(product $product, $id)
     {
-        $data=Category::find($id);
-        $datalist=Category::all();
-        return view('admin.category.edit',[
-            'data'=> $data,
+        $data = Product::find($id);
+        $datalist = Category::all();
+        return view('admin.product.edit', [
+            'data' => $data,
             'datalist' => $datalist
         ]);
-
     }
 
     /**
@@ -108,18 +101,24 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category,$id)
+    public function update(Request $request, product $product, $id)
     {
-        $data=Category::find($id);
+        $data = Product::find($id);
+        $data->category_id = $request->category_id;
+        $data->user_id = 0;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->status = $request->status;
-        if ($request->file('image')){
-            $data->image= $request->file('image')->store('images');
+        $data->detail = $request->detail;
+        $data->price = $request->price;
+        $data->quantity = $request->quantity;
+        $data->tax = $request->tax;
+        $data->status = $request->status;;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/kategoriler');
+        return redirect('admin/ürünler');
     }
 
     /**
@@ -128,12 +127,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category,$id)
+    public function destroy(product $product, $id)
     {
-        $data=Category::find($id);
+        $data = Product::find($id);
         Storage::delete("$data->image");
         $data->delete();
-        return redirect('admin/category');
-
+        return redirect('admin/ürünler');
     }
 }

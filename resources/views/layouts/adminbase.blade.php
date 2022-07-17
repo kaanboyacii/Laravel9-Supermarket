@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>srtdash - ICO Dashboard</title>
+    <title>İz Market Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{asset('assets')}}/admin/images/icon/favicon.ico">
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/bootstrap.min.css">
