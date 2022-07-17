@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title">Ürün Düzenle</h4>
-                            <form role="form" action="{{route('admin.product.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{route('admin.product.update',['id'=>$data->id])}}" method="post"  enctype="multipart/form-data">
 
                                 @csrf
                                 <div class="form-group">
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Anahtar Kelimeler</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="{{$data->keywords}}" name="keywords">
+                                    <input type="text" class="form-control" id="exampleInputName1" value="{{$data->keywords}}"  name="keywords">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Açıklama</label>
@@ -43,13 +43,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Detay</label>
-                                    <textarea class="form-control" aria-label="Detay" value="{{$data->detail}}" name="detail" style="height: 58px;"></textarea>
+                                    <input type="Description" class="form-control" id="exampleInputName1" value="{{$data->detail}}" name="detail">
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" value="{{$data->price}}" name="price" aria-label="Amount (to the nearest dollar)">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">₺</span>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Fiyat</label>
+                                    <input type="number" class="form-control" id="exampleInputName1" value="{{$data->price}}" name="price">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Stok</label>

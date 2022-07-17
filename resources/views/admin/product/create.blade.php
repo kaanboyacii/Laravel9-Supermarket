@@ -39,9 +39,11 @@
                                     <label for="exampleInputName1">Detay</label>
                                     <input type="Description" class="form-control" id="exampleInputName1" placeholder="Detay" name="detail">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Fiyat</label>
-                                    <input type="number" class="form-control" id="exampleInputName1" placeholder="Fiyat" name="price">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="price" aria-label="Amount (to the nearest dollar)">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">₺</span>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Stok</label>

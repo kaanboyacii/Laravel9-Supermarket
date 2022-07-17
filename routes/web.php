@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\ProductController as AdminProductController;
+use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 use Illuminate\Http\Request;
 
 /*
