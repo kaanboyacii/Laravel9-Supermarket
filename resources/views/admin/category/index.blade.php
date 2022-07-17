@@ -46,7 +46,7 @@
                                                 <td>{{$rs->status}}</td>
                                                 <td><a class="ti-write" href="{{route('admin.category.edit',['id'=>$rs->id])}}"></a></td>
                                                 <td><a class="ti-info-alt" href="{{route('admin.category.show',['id'=>$rs->id])}}"></a></td>
-                                                <td><a class="ti-trash" href="{{route('admin.category.delete',['id'=>$rs->id])}}"></a></td>
+                                                <td><a class="ti-trash" href="{{route('admin.category.delete',['id'=>$rs->id])}}", onclick="return confirm('Silmek İçin Emin misiniz ?')"></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

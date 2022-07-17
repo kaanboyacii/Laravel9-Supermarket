@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <label for="exampleSelectGender">Durum</label>
                                     <select name="status" class="form-control">
-                                        <option selected>"{{$data->status}}"</option>
+                                        <option selected>{{$data->status}}</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="pasif">Pasif</option>
                                     </select>

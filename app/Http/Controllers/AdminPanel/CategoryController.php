@@ -59,6 +59,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data= new Category();
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -111,6 +112,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category,$id)
     {
         $data=Category::find($id);
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -133,7 +135,7 @@ class CategoryController extends Controller
         $data=Category::find($id);
         Storage::delete("$data->image");
         $data->delete();
-        return redirect('admin/category');
+        return redirect('admin/kategoriler');
 
     }
 }
