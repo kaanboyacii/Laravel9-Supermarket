@@ -762,6 +762,7 @@ ol {
 .categories__item {
     height: 270px;
     position: relative;
+    border-radius: 10px;
 }
 
 .categories__item h5 {
@@ -771,10 +772,12 @@ ol {
     padding: 0 20px;
     bottom: 20px;
     text-align: center;
+
 }
 
 .categories__item h5 a {
     font-size: 18px;
+    border-radius: 10px;
     color: #1c1c1c;
     font-weight: 700;
     text-transform: uppercase;
