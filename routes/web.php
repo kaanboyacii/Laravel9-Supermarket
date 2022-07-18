@@ -120,10 +120,7 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/home',[HomeController::class, 'index'])->name('home');
-// Route::get('/admin',[AdminHomeController::class, 'index'])->name('admin');
-// Route::get('/admin/kategori',[AdminCategoryController::class, 'index'])->name('admin');
-// Route::get('/admin/kategori/oluştur',[AdminCategoryController::class, 'create'])->name('create');
-// Route::post('/admin/kategori/store',[AdminCategoryController::class, 'store'])->name('store');
+Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 
     //ADMIN PANEL ROUTES
     Route::middleware('auth')->prefix('admin')->name('admin.')->group(function() {
