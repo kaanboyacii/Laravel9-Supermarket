@@ -43,7 +43,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Detay</label>
-                                    <textarea class="form-control" aria-label="Detay" value="{{$data->detail}}" name="detail" style="height: 58px;"></textarea>
+                                    <textarea class="form-control" id="detail" name="detail" value="{{$data->detail}} placeholder="Detail">
+                                    {{$data->detail}}
+                                    </textarea>
+                                    <script>
+                                        ClassicEditor
+                                            .create(document.querySelector('#detail'))
+                                            .then(editor => {
+                                                console.log(editor);
+                                            })
+                                            .catch(error => {
+                                                console.error(error);
+                                            });
+                                    </script>
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" value="{{$data->price}}" name="price" aria-label="Amount (to the nearest dollar)">

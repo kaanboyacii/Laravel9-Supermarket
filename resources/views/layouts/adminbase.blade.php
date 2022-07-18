@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/responsive.css">
     <!-- modernizr css -->
     <script src="{{asset('assets')}}/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
     <!-- preloader area start -->
