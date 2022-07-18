@@ -16,8 +16,10 @@ class HomeController extends Controller
     public function index()
     {
         $sliderdata = Category::limit(10)->get();
+        $servicelist1 = Product::limit(8)->get();
         return view('home.index', [
             'sliderdata' => $sliderdata,
+            'servicelist1' => $servicelist1
         ]);
     }
 
