@@ -16,13 +16,17 @@ class HomeController extends Controller
     {
 
         $category = Category::find($id);
+        $categorylist = Category::Where('parent_id','=',0)->get();
+        $lastproducts = Product::limit(6)->latest()->get();
        // $servicesx = DB::table('services')->where('category_id',$id)->get();
-        $services = Product::where('category_id',$id)->get();
-       // dd($services);
-        return view('home.categoryservices', [
+        $products = Product::where('category_id',$id)->get();
+       // dd($products);
+        return view('home.categoryproducts', [
 
             'category' => $category,
-            'services' => $services
+            'categorylist' => $categorylist,
+            'lastproducts' => $lastproducts,
+            'products' => $products
         ]);
     }
 
@@ -33,7 +37,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliderdata = Category::limit(9)->get();
+        $sliderdata = Category::Where('parent_id','=',0)->get();
         $servicelist1 = Product::limit(18)->get();
         return view('home.index', [
             'sliderdata' => $sliderdata,
