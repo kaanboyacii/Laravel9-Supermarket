@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+    public static function maincategorylist(){
+        return Category::Where('parent_id','=',0)->with('children')->get();
+    }
+    public function categoryproducts($id)
+    {
+
+        $category = Category::find($id);
+       // $servicesx = DB::table('services')->where('category_id',$id)->get();
+        $services = Product::where('category_id',$id)->get();
+       // dd($services);
+        return view('home.categoryservices', [
+
+            'category' => $category,
+            'services' => $services
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +33,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliderdata = Category::limit(10)->get();
+        $sliderdata = Category::limit(9)->get();
         $servicelist1 = Product::limit(18)->get();
         return view('home.index', [
             'sliderdata' => $sliderdata,

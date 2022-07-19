@@ -8,24 +8,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="hero__categories">
+                <div class="hero__categories category__menu">
+                    @php
+                    $mainCategories = \App\Http\Controllers\HomeController::maincategorylist();
+                    @endphp
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
                         <span>Kategoriler</span>
                     </div>
                     <ul>
-                        <li><a href="#">Temel Gıda</a></li>
-                        <li><a href="#">Fırın, Pastane</a></li>
-                        <li><a href="#">Et, Tavuk</a></li>
-                        <li><a href="#">Atıştırmalık</a></li>
-                        <li><a href="#">Süt, Süt Ürünleri</a></li>
-                        <li><a href="#">İçecekler</a></li>
-                        <li><a href="#">Temizlik</a></li>
-                        <li><a href="#">Şampuan, Bakım ürünleri</a></li>
-                        <li><a href="#">Züccaciye</a></li>
-                        <li><a href="#">Oyuncak</a></li>
-                        <li><a href="#">Elektronik</a></li>
-                        <li><a href="#">Dondurma</a></li>
+                        @foreach($mainCategories as $rs)
+                        <li class=""><a href="#">{{$rs->title}}</a>
+                        @if(count($rs->children))
+                        @include('home.categorytree',['children' => $rs->children])
+                        @endif
+                        </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>

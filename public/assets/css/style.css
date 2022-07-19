@@ -426,6 +426,58 @@ ol {
     position: relative;
 }
 
+.category__menu ul li .category__menu__dropdown {
+    position: absolute;
+    left: 277px;
+    top: 50px;
+    background: #ffff;
+    margin-top: 17px;
+    width: 250px;
+    height: 453px;
+    z-index: 9;
+    padding: 5px 0;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.category__menu ul li .category__menu__dropdown li {
+    margin-right: 0;
+    display: block;
+}
+
+.category__menu ul li .category__menu__dropdown li:hover > a {
+    color: #f48627;
+}
+
+.category__menu ul li .category__menu__dropdown li a {
+    text-transform: capitalize;
+    color: #222222;
+    font-weight: 400;
+    padding: 5px 15px;
+}
+
+.category__menu ul li.active a {
+    color: #f48627;
+}
+
+.category__menu ul li:hover .category__menu__dropdown {
+    top: 30px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.category__menu ul li:hover > a {
+    color: #f48627;
+}
+
+.category__menu ul li:last-child {
+    margin-right: 0;
+}
 .header__menu ul li .header__menu__dropdown {
     position: absolute;
     left: 0;
