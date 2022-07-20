@@ -36,6 +36,8 @@
                 <div class="blog__details__content">
                     <div class="row">
                         <div class="col-lg-6">
+                            <h3>Referanslarımız</h3>
+                            {!! $setting->references !!}
                             <div class="blog__details__author">
                                 <div class="blog__details__author__pic">
                                     <img src="{{asset('assets')}}/img/blog/details/details-author1.jpeg" alt="">
