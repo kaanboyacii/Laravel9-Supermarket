@@ -36,6 +36,7 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
 
     //ADMIN PANEL ROUTES
     Route::middleware('auth')->prefix('admin')->name('admin.')->group(function() {

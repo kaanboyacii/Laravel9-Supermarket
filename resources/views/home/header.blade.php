@@ -61,7 +61,8 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./contact.html">İLETİŞİM</a></li>
+                            <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
+                            <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                             <li><a href="./contact.html">HESABIM</a></li>
                         </ul>
                     </nav>
