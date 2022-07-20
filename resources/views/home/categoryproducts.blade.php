@@ -13,7 +13,7 @@
                         <h4>Kategoriler</h4>
                         <ul>
                             @foreach($categorylist as $rs)
-                            <li><a href="#">{{$rs->title}}</a></li>
+                            <li><a href="{{route('categoryproducts',['id'=>$rs->id])}}">{{$rs->title}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -34,47 +34,47 @@
                         </div>
                     </div>
                     <div class="sidebar__item sidebar__item__color--option">
-                        <h4>Colors</h4>
+                        <h4>Renk</h4>
                         <div class="sidebar__item__color sidebar__item__color--white">
                             <label for="white">
-                                White
+                                Beyaz
                                 <input type="radio" id="white">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--gray">
                             <label for="gray">
-                                Gray
+                                Gri
                                 <input type="radio" id="gray">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--red">
                             <label for="red">
-                                Red
+                                Kırmızı
                                 <input type="radio" id="red">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--black">
                             <label for="black">
-                                Black
+                                Siyah
                                 <input type="radio" id="black">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--blue">
                             <label for="blue">
-                                Blue
+                                Mavi
                                 <input type="radio" id="blue">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--green">
                             <label for="green">
-                                Green
+                                Yeşil
                                 <input type="radio" id="green">
                             </label>
                         </div>
                     </div>
                     <div class="sidebar__item">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
+                            <h4>Yeni Ürünler</h4>
                             <div class="latest-product__slider owl-carousel">
                                 @foreach($lastproducts as $rs)
                                 <div class="latest-prdouct__slider__item">

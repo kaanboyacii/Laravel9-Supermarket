@@ -19,9 +19,10 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$setting->facebook}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$setting->instagram}}"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$setting->youtube}}"><i class="fa fa-youtube"></i></a>
                             </div>
                             <div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
@@ -44,13 +45,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{asset('assets')}}/img/izlogo.jpg" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets')}}/img/izlogo.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">ANASAYFA</a></li>
+                            <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
 
                             <li><a href="#">ALIŞVERİŞ</a>
                                 <ul class="header__menu__dropdown">

@@ -1,6 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title', 'İz Market')
+@section('title', $setting->title)
+@section('description', $setting->description)
+@section('keywords', $setting->keywords)
+@section('icon', Storage::url($setting->icon))
 
 @section('content')
 <!-- Hero Section Begin -->
@@ -18,7 +21,7 @@
                     </div>
                     <ul>
                         @foreach($mainCategories as $rs)
-                        <li class=""><a href="#">{{$rs->title}}</a>
+                        <li class=""><a href="{{route('categoryproducts',['id'=>$rs->id])}}">{{$rs->title}}</a>
                         @if(count($rs->children))
                         @include('home.categorytree',['children' => $rs->children])
                         @endif
@@ -71,7 +74,7 @@
                 @foreach($sliderdata as $rs)
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="{{ Storage::url("{$rs->image}") }}">
-                        <h5><a href="#">{{$rs->title}}</a></h5>
+                        <h5><a href="{{route('categoryproducts',['id'=>$rs->id])}}">{{$rs->title}}</a></h5>
                     </div>
                 </div>
                 @endforeach
