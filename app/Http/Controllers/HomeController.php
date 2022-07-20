@@ -47,6 +47,13 @@ class HomeController extends Controller
             'setting' => $setting
         ]);
     }
+    public function contact()
+    {
+        $setting = Setting::first();
+        return view('home.contact', [
+            'setting'=>$setting
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

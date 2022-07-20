@@ -68,6 +68,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputName1">Çalışma Saati</label>
+                                <input type="text" class="form-control" id="exampleInputName1" name="opentime" value="{{$data->opentime}}">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleSelectGender">Durum</label>
                                 <select name="status" class="form-control">
                                     <option selected>{{$data->status}}</option>
