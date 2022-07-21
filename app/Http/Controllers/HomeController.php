@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Message;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -60,6 +61,17 @@ class HomeController extends Controller
         $setting = Setting::first();
         return view('home.about', [
             'setting'=>$setting
+        ]);
+    }
+    public function faq()
+    {
+        $setting = Setting::first();
+        $datalist = Faq::all();
+        $lastfaqs = Faq::limit(3)->latest()->get();
+        return view('home.faq', [
+            'setting'=>$setting,
+            'datalist'=>$datalist,
+            'lastfaqs'=>$lastfaqs
         ]);
     }
     public function storemessage(Request $request)

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/style.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     @yield("head")
 </head>
 

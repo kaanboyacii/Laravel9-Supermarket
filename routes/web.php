@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryControlle
 use App\Http\Controllers\AdminPanel\ProductController as AdminProductController;
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
+use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
 use Illuminate\Http\Request;
 
 /*
@@ -39,6 +40,7 @@ Route::get('/categoryproducts/{id}',[HomeController::class, 'categoryproducts'])
 Route::get('/iletişim',[HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
+Route::get('/sıkçasorulansorular',[HomeController::class, 'faq'])->name('faq');
 
     //ADMIN PANEL ROUTES
     Route::middleware('auth')->prefix('admin')->name('admin.')->group(function() {
@@ -94,13 +96,6 @@ Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
             Route::get('/destroy/{id}','destroy')->name('destroy');
-            Route::get('/show/{id}','show')->name('show');
-        });
-        //ADMIN APPOINTMENT ROUTES
-        Route::prefix('/appointment')->name('appointment.')->controller(AdminAppointmentController::class)->group(function() {
-            Route::get('/{slug}',[AdminAppointmentController::class, 'index'])->name('index');
-            Route::get('/reject/{id}','reject')->name('reject');
-            Route::post('/update/{id}','update')->name('update');
             Route::get('/show/{id}','show')->name('show');
         });
         //ADMIN USER ROUTES

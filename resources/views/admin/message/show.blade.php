@@ -53,7 +53,7 @@
                                             <td>{{$data->updated_at}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Admin Note:</th>
+                                            <th style="width: 30px">Yönetici Notu:</th>
                                             <td>
                                                 <form role="form" action="{{route('admin.message.update',['id'=>$data->id])}}" method="POST" class="forms-sample">
                                                     @csrf
@@ -61,7 +61,7 @@
                                                     {{$data->note}}
                                                     </textarea>
                                                     <div class="card-footer">
-                                                        <button type="submit" class="btn-primary">Update Data</button>
+                                                        <button type="submit" class="btn-primary">Notu Yükle</button>
                                                     </div>
                                             </td>
                                         </tr>
