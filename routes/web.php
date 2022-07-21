@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\ProductController as AdminProductController;
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
+use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
 use Illuminate\Http\Request;
 
 /*
@@ -35,7 +36,8 @@ Route::middleware([
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
-Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::get('/iletişim',[HomeController::class, 'contact'])->name('contact');
+Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
 
     //ADMIN PANEL ROUTES
@@ -71,7 +73,7 @@ Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
             Route::get('/delete/{sid}/{id}','destroy')->name('delete');
         });
         //ADMIN MESSAGE ROUTES
-        Route::prefix('/message')->name('message.')->controller(AdminMessageController::class)->group(function() {
+        Route::prefix('/mesajlar')->name('message.')->controller(AdminMessageController::class)->group(function() {
             Route::get('/',[AdminMessageController::class, 'index'])->name('index');
             Route::get('/show/{id}','show')->name('show');
             Route::post('/update/{id}','update')->name('update');

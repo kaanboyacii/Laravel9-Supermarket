@@ -77,12 +77,12 @@
 <!-- Map End -->
 
 <!-- Contact Form Begin -->
-<!-- <div class="contact-form spad">
+<div class="contact-form spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="contact__form__title">
-                    <h2>Leave Message</h2>
+                    <h2>Mesaj gönder</h2>
                 </div>
             </div>
         </div>
@@ -91,18 +91,24 @@
             @csrf
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name">
+                    <input name="name" type="text" placeholder="İsminiz">
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email">
+                    <input name="phone" type="text" placeholder="Telefonunuz">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input name="email" type="text" placeholder="E-postanız">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input name="subject" type="text" placeholder="Konu">
                 </div>
                 <div class="col-lg-12 text-center">
-                    <textarea placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn">SEND MESSAGE</button>
+                    <textarea name="message" placeholder="Mesajınız"></textarea>
+                    <button type="submit" class="site-btn">MESAJI GÖNDER</button>
                 </div>
             </div>
         </form>
     </div>
-</div> -->
+</div>
 <!-- Contact Form End -->
 @endsection

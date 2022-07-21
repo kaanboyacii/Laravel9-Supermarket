@@ -19,6 +19,7 @@
                             </li>
                             <li><a href="{{route('admin.category.index')}}"><i class="ti-layout-grid2"></i> <span>Kategoriler</span></a></li>
                             <li><a href="{{route('admin.product.index')}}"><i class="ti-package"></i> <span>Ürünler</span></a></li>
+                            <li><a href="{{route('admin.message.index')}}"><i class="ti-email"></i> <span>Mesajlar</span></a></li>
                             <li><a href="{{route('admin.setting')}}"><i class="ti-settings"></i> <span>Ayarlar</span></a></li>
 
                             <li>
