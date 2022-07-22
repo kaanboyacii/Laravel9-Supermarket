@@ -30,9 +30,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-
                         <img style="height: 550px;" class="product__details__pic__item--large" src="{{ Storage::url($data->image)}}">
-
                     </div>
                     <div class=" product__details__pic__slider owl-carousel">
                         @foreach($images as $rs)
@@ -44,13 +42,25 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>{{$data->title}}</h3>
+                    @php
+                    $average = $data->comment->average('rate');
+                    @endphp
                     <div class="product__details__rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
+                        <i @if ($average==0) class="fa fa-star-o" @endif></i>
+                        <i @if ($average>1 or $average==1) class="fa fa-star" @endif></i>
+                        <i @if ($average>2 or $average==2) class="fa fa-star" @endif
+                        @if ($average<2) class="fa fa-star-o" @endif
+                        ></i>
+                        <i @if ($average>3 or $average==3) class="fa fa-star" @endif
+                        @if ($average<3) class="fa fa-star-o" @endif
+                        ></i>
+                        <i @if ($average>4 or $average==4) class="fa fa-star" @endif
+                        @if ($average<4) class="fa fa-star-o" @endif
+                        ></i>
+                        <i @if ($average>5 or $average==5) class="fa fa-star" @endif
+                        @if ($average<5) class="fa fa-star-o" @endif
+                        ></i>
+                        <span>({{$data->comment->count('id')}})</span>
                     </div>
                     <div class="product__details__price">{{$data->price}} ₺</div>
                     <p>{{$data->description}}</p>
@@ -82,57 +92,47 @@
                 <div class="product__details__tab">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Description</a>
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Ürün Detayları</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">Information</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Reviews <span>(1)</span></a>
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">İncelemeler <span>({{$data->comment->count('id')}})</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
+                                <h6>Ürün Detayları</h6>
                                 <p>{!! $data->detail !!}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                    Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                    Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                    sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                    eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                    sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                    diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                    Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                    Proin eget tortor risus.</p>
-                                <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                    elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                    porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                    nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                    Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                    Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                    sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                    eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                    sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                    diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                    Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                    Proin eget tortor risus.</p>
+                                @foreach($reviews as $rs)
+                                <div class="container">
+                                    <div class="row gy-5">
+                                        <div class="col-6">
+                                            <div class="p-3">
+                                                <div><a href="#">{{$rs->user->name}}</a></div>
+                                                <div class="product__details__rating">
+                                                    <i @if ($rs->rate>=1) class="fa fa-star" @endif
+                                                        ></i>
+                                                    <i @if ($rs->rate>=2) class="fa fa-star" @endif
+                                                        @if ($rs->rate<2) class="fa fa-star-o" @endif></i>
+                                                    <i @if ($rs->rate>=3) class="fa fa-star" @endif
+                                                        @if ($rs->rate<3) class="fa fa-star-o" @endif></i>
+                                                    <i @if ($rs->rate>=4) class="fa fa-star" @endif
+                                                        @if ($rs->rate<4) class="fa fa-star-o" @endif></i>
+                                                    <i @if ($rs->rate>=5) class="fa fa-star" @endif
+                                                        @if ($rs->rate<5) class="fa fa-star-o" @endif></i>
+                                                </div>
+                                                <h5>{{$rs->subject}}</h5>
+                                                <p>{{$rs->comment}}</p>
+                                                <div>{{$rs->created_at}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -144,77 +144,32 @@
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
-<section class="related-product">
+<div class="contact-form spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="section-title related__product__title">
-                    <h2>Related Product</h2>
+                <div class="contact__form__title">
+                    <h2>Yorum Ekle</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
+        <form action="{{route('storecomment')}}" method="post" id="review_form" class="review_form">
+            @csrf
+            <div class="row">
+                <input type="hidden" class="input" name="product_id" value="{{$data->id}}" />
+                <div class="col-lg-6 col-md-6">
+                    <input name="subject" type="text" placeholder="Konu Başlığı">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input name="rate" min="1" max="5" type="number" placeholder="Değerlendirme">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <textarea class="review_form_text" name="comment" placeholder="Yorumunuz"></textarea>
+                    <button type="submit" class="site-btn">YORUMU GÖNDER</button>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
+        @include('home.messages')
     </div>
-</section>
+</div>
 @endsection

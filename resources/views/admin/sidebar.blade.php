@@ -20,6 +20,7 @@
                             <li><a href="{{route('admin.category.index')}}"><i class="ti-layout-grid2"></i> <span>Kategoriler</span></a></li>
                             <li><a href="{{route('admin.product.index')}}"><i class="ti-package"></i> <span>Ürünler</span></a></li>
                             <li><a href="{{route('admin.message.index')}}"><i class="ti-email"></i> <span>Mesajlar</span></a></li>
+                            <li><a href="{{route('admin.comment.index')}}"><i class="ti-comment"></i> <span>Yorumlar</span></a></li>
                             <li><a href="{{route('admin.faq.index')}}"><i class="ti-help"></i> <span>Sıkça Sorulan Sorular</span></a></li>
                             <li><a href="{{route('admin.setting')}}"><i class="ti-settings"></i> <span>Ayarlar</span></a></li>
 

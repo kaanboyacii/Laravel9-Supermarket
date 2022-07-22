@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryControlle
 use App\Http\Controllers\AdminPanel\ProductController as AdminProductController;
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
+use App\Http\Controllers\AdminPanel\CommentController as AdminCommentController;
 use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
 use Illuminate\Http\Request;
 
@@ -35,10 +36,11 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/home',[HomeController::class, 'index'])->name('home');
-Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
+Route::get('/ürün/{id}',[HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::get('/iletişim',[HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
+Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
 Route::get('/hakkımızda',[HomeController::class, 'about'])->name('about');
 Route::get('/sıkçasorulansorular',[HomeController::class, 'faq'])->name('faq');
 
@@ -82,7 +84,7 @@ Route::get('/sıkçasorulansorular',[HomeController::class, 'faq'])->name('faq')
             Route::get('/destroy/{id}','destroy')->name('destroy');
         });
         //ADMIN COMMENT ROUTES
-        Route::prefix('/comment')->name('comment.')->controller(AdminCommentController::class)->group(function() {
+        Route::prefix('/yorumlar')->name('comment.')->controller(AdminCommentController::class)->group(function() {
             Route::get('/',[AdminCommentController::class, 'index'])->name('index');
             Route::get('/show/{id}','show')->name('show');
             Route::post('/update/{id}','update')->name('update');

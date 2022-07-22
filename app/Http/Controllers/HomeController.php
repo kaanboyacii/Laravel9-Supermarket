@@ -6,9 +6,11 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Message;
+use App\Models\Comment;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -84,7 +86,19 @@ class HomeController extends Controller
         $data->message = $request->input('message');
         $data->ip = request()->ip();
         $data->save();
-        return redirect()->route('contact')->with('Başarılı','Mesajınız Gönderildi, Teşekkür Ederiz');
+        return redirect()->route('contact')->with('success','Mesajınız Gönderildi, Teşekkür Ederiz');
+    }
+    public function storecomment(Request $request)
+    {
+        $data = New Comment();
+        $data->user_id = Auth::id();
+        $data->product_id = $request->input('product_id');
+        $data->subject = $request->input('subject');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+        return redirect()->route('product',['id'=>$request->input('product_id')])->with('success','Yorumunuz Gönderildi, Teşekkür Ederiz');
     }
 
     /**
@@ -95,10 +109,14 @@ class HomeController extends Controller
     public function product($id)
     {
         $data = product::find($id);
+        $setting = Setting::first();
         $images = DB::table('images')->where('product_id',$id)->get();
+        $reviews = Comment::where('product_id',$id)->where('status','aktif')->get();
         return view('home.product', [
             'data' => $data,
             'images' => $images,
+            'setting' => $setting,
+            'reviews' => $reviews
         ]);
     }
 
