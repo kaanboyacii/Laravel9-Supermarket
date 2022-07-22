@@ -48,7 +48,7 @@
                         <a href="{{route('home')}}"><img src="{{asset('assets')}}/img/izlogo.jpg" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
@@ -64,18 +64,27 @@
                             <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
                             <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                             <li><a href="{{route('faq')}}">SSS</a></li>
-                            <li><a href="./contact.html">HESABIM</a></li>
+                            <li><a href="#">HESABIM</a>
+                                <ul class="header__menu__dropdown">
+                                    <li> @guest
+                                        <a href="/loginuser">Login</a>
+                                    </li>
+                                    <li>
+                                        <a href="/registeruser">Register</a>
+                                        @endguest
+                                    </li>
+                                    <li> @auth
+                                        <a href="#">{{Auth::user()->name}}</a>
+                                        @endauth
+                                    </li>
+                                    <li> @auth
+                                        <a href="/logoutuser">Logout</a>
+                                        @endauth
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">Sepet Tutarı: <span>150.00₺</span></div>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
