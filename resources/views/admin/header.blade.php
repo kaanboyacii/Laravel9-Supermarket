@@ -181,13 +181,15 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
+                            @auth
                             <img class="avatar user-thumb" src="{{asset('assets')}}/admin/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Orkun Boyacı <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Mesajlar</a>
-                                <a class="dropdown-item" href="#">Ayarlar</a>
-                                <a class="dropdown-item" href="#">Çıkış Yap</a>
+                                <a class="dropdown-item" href="{{route('admin.message.index')}}">Mesajlar</a>
+                                <a class="dropdown-item" href="{{route('admin.setting')}}">Ayarlar</a>
+                                <a class="dropdown-item" href="/logoutuser">Çıkış Yap</a>
                             </div>
+                            @endauth
                         </div>
                     </div>
                 </div>
