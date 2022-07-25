@@ -187,7 +187,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('admin.message.index')}}">Mesajlar</a>
                                 <a class="dropdown-item" href="{{route('admin.setting')}}">Ayarlar</a>
-                                <a class="dropdown-item" href="/logoutuser">Çıkış Yap</a>
+                                <a class="dropdown-item" href="{{route('admin_logout')}}">Çıkış Yap</a>
                             </div>
                             @endauth
                         </div>
