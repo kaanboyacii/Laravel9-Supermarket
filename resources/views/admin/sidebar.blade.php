@@ -23,6 +23,7 @@
                             <li><a href="{{route('admin.comment.index')}}"><i class="ti-comment"></i> <span>Yorumlar</span></a></li>
                             <li><a href="{{route('admin.faq.index')}}"><i class="ti-help"></i> <span>Sıkça Sorulan Sorular</span></a></li>
                             <li><a href="{{route('admin.setting')}}"><i class="ti-settings"></i> <span>Ayarlar</span></a></li>
+                            <li><a href="{{route('admin.user.index')}}"><i class="ti-user"></i> <span>Kullanıcılar</span></a></li>
 
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
