@@ -78,7 +78,7 @@
                             <div class="latest-product__slider owl-carousel">
                                 @foreach($lastproducts as $rs)
                                 <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
+                                    <a href="{{route('product',['id'=>$rs->id])}}" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="{{ Storage::url("{$rs->image}") }}" alt="">
                                         </div>
@@ -114,7 +114,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>{{$rs->category->title}}</span>
-                                        <h5><a href="#">{{$rs->title}}</a></h5>
+                                        <h5><a href="{{route('product',['id'=>$rs->id])}}">{{$rs->title}}</a></h5>
                                         <div class="product__item__price">{{$rs->price}}₺ <span>{{$rs->price*1.20}}₺</span></div>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">{{$rs->title}}</a></h6>
+                                <h6><a href="{{route('product',['id'=>$rs->id])}}">{{$rs->title}}</a></h6>
                                 <h5>{{$rs->price}}₺</h5>
                             </div>
                         </div>

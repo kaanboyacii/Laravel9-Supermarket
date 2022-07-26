@@ -47,7 +47,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/ürün/{id}', [HomeController::class, 'product'])->name('product');
-Route::get('/categoryproducts/{id}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
+Route::get('/kategoriürünleri/{id}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
+
 Route::get('/iletişim', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
 Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');

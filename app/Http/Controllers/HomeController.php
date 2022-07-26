@@ -26,6 +26,7 @@ class HomeController extends Controller
         $categorylist = Category::Where('parent_id', '=', 0)->get();
         $lastproducts = Product::limit(6)->latest()->get();
         // $servicesx = DB::table('services')->where('category_id',$id)->get();
+        $setting = Setting::first();
         $products = Product::where('category_id', $id)->get();
         // dd($products);
         return view('home.categoryproducts', [
@@ -33,7 +34,8 @@ class HomeController extends Controller
             'category' => $category,
             'categorylist' => $categorylist,
             'lastproducts' => $lastproducts,
-            'products' => $products
+            'products' => $products,
+            'setting' => $setting
         ]);
     }
 
