@@ -44,7 +44,7 @@
                 <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
                 <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                 <li><a href="{{route('faq')}}">SSS</a></li>
-                <li><a href="#">HESABIM</a>
+                <li><a href="{{route('userpanel.index')}}">HESABIM</a>
                     <ul class="header__menu__dropdown">
                         <li> @guest
                             <a href="/loginuser">Login</a>
@@ -54,7 +54,7 @@
                             @endguest
                         </li>
                         <li> @auth
-                            <a href="#">{{Auth::user()->name}}</a>
+                            <a href="/userpanel">{{Auth::user()->name}}</a>
                             @endauth
                         </li>
                         <li> @auth
