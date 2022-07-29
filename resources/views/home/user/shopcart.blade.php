@@ -47,6 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @include('home.messages')
                             @php
                             ($total=0)
                             @endphp
@@ -86,14 +87,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="shoping__cart__btns">
                     <a href="#" class="primary-btn cart-btn">Alışverişe Devam Et</a>
-                    <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        Sepeti Güncelle</a>
+                    <!-- <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        Sepeti Güncelle</a> -->
                 </div>
-            </div>
-            <div class="col-lg-6">
                 <div class="shoping__continue">
                     <div class="shoping__discount">
                         <h5>İndirim kodları</h5>
@@ -103,6 +102,7 @@
                         </form>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-6">
                 <div class="shoping__checkout">
@@ -113,6 +113,9 @@
                     </ul>
                     <a href="#" class="primary-btn">Ödeme Adımına İlerle</a>
                 </div>
+            </div>
+            <div class="col-lg-6">
+
             </div>
         </div>
     </div>

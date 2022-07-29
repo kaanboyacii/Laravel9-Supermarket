@@ -61,12 +61,12 @@
                     <div class="product__details__price">{{$data->price}} ₺</div>
                     <p>{{$data->description}}</p>
                     @include('home.messages')
-                    <form action="{{route('shopcart.store')" method="post">
+                    <form action="{{route('shopcart.store')}}" method="post">
                         @csrf
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="number" name="quantity" value="1" min="1" max="{{$rs->product->quantity}}">
+                                    <input type="number" name="quantity" value="1" min="1" max="{{$data->quantity}}">
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                     </form>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Stok</b> <span></span></li>
+                        <li><b>Stok</b> <span>{{$data->quantity}}</span></li>
                         <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                         <li><b>Weight</b> <span>0.5 kg</span></li>
                         <li><b>Share on</b>
