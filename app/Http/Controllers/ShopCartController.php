@@ -62,9 +62,19 @@ class ShopCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function add($id)
     {
-        //
+        $data = ShopCart::where('product_id',$id)->where('user_id',Auth::id())->first(); //check product for user
+        if ($data){
+            $data->quantity = $data->quantity + 1;
+        } else {
+            $data= new ShopCart();
+            $data->product_id = $id;
+            $data->user_id = Auth::id();
+            $data->quantity = 1;
+        }
+        $data->save();
+        return redirect()->back()->with('info', 'Ürün Sepete Eklendi');
     }
 
     /**

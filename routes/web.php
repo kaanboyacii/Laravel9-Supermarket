@@ -66,11 +66,10 @@ Route::middleware('auth')->group(function () {
     //SHOPCART ROUTES
     Route::prefix('/sepet')->name('shopcart.')->controller(ShopCartController::class)->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/oluştur', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
         Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/detay/{id}', 'show')->name('show');
+        Route::get('/add/{id}', 'add')->name('add');
         Route::get('/kaldır/{id}', 'destroy')->name('delete');
     });
     //ADMİN PANEL ROUTES
