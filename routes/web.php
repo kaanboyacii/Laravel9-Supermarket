@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/oluştur', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/düzenle/{id}', 'edit')->name('edit');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/detay/{id}', 'show')->name('show');
         Route::get('/kaldır/{id}', 'destroy')->name('delete');

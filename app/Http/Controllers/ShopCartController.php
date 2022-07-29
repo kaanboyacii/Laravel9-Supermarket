@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShopCart;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,12 @@ class ShopCartController extends Controller
      */
     public function index()
     {
-        //
+        $setting = Setting::first();
+        $data = ShopCart::where('user_id',Auth::id())->get();
+        return view('home.user.shopcart', [
+            'setting' => $setting,
+            'data' => $data
+        ]);
     }
 
     /**
@@ -36,10 +42,16 @@ class ShopCartController extends Controller
      */
     public function store(Request $request)
     {
-        $data= new ShopCart();
-        $data->product_id = $request->input('product_id');
-        $data->user_id = Auth::id();
-        $data->quantity = $request->input('quantity');
+        $id=$request->id;
+        $data = ShopCart::where('product_id',$id)->where('user_id',Auth::id())->first(); //check product for user
+        if ($data){
+            $data->quantity = $data->quantity + $request->input('quantity');
+        } else {
+            $data= new ShopCart();
+            $data->product_id = $request->input('product_id');
+            $data->user_id = Auth::id();
+            $data->quantity = $request->input('quantity');
+        }
         $data->save();
         return redirect()->back()->with('info', 'Ürün Sepete Eklendi');
     }
@@ -75,7 +87,10 @@ class ShopCartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = ShopCart::find($id);
+        $data->quantity = $request->input('quantity');
+        $data->save();
+        return redirect()->back()->with('success','Ürün Miktarı Değiştirildi');
     }
 
     /**
@@ -86,6 +101,8 @@ class ShopCartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data= ShopCart::find($id);
+        $data->delete();
+        return redirect()->back()->with('info','Ürün Sepetten Silindi');
     }
 }

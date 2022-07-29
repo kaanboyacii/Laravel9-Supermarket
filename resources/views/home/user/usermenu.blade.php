@@ -15,6 +15,6 @@
 </div>
 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
     <div class="contact__widget">
-        <h4><a style="color:black;" href="{{route('userpanel.index')}}">My Profile</a></h4>
+        <h4><a style="color:black;" href="{{route('shopcart.index')}}">Sepetim</a></h4>
     </div>
 </div>

@@ -61,12 +61,12 @@
                     <div class="product__details__price">{{$data->price}} ₺</div>
                     <p>{{$data->description}}</p>
                     @include('home.messages')
-                    <form action="{{route('shopcart.store')}}" method="post">
+                    <form action="{{route('shopcart.store')" method="post">
                         @csrf
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="number" name="quantity" value="1">
+                                    <input type="number" name="quantity" value="1" min="1" max="{{$rs->product->quantity}}">
                                 </div>
                             </div>
                         </div>
