@@ -35,10 +35,9 @@
 
                 <li><a href="#">ALIŞVERİŞ</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="{{route('userpanel.index')}}">asdasd</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+
                     </ul>
                 </li>
                 <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
@@ -54,7 +53,7 @@
                             @endguest
                         </li>
                         <li> @auth
-                            <a href="/userpanel">{{Auth::user()->name}}</a>
+                            <a href="{{route('userpanel.index')}}">{{Auth::user()->name}}</a>
                             @endauth
                         </li>
                         <li> @auth
@@ -133,8 +132,6 @@
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
@@ -150,7 +147,7 @@
                                         @endguest
                                     </li>
                                     <li> @auth
-                                        <a href="#">{{Auth::user()->name}}</a>
+                                        <a href="{{route('userpanel.index')}}">{{Auth::user()->name}}</a>
                                         @endauth
                                     </li>
                                     <li> @auth
