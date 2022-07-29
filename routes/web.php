@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopCartController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
@@ -34,12 +35,12 @@ Route::view('/loginuser', 'home.login')->name('loginuser');
 Route::view('/registeruser', 'home.register')->name('registeruser');
 Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
 
-Route::view('/loginadmin','admin.login')->name('loginadmin');
-Route::post('/loginadmincheck',[HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
+Route::view('/loginadmin', 'admin.login')->name('loginadmin');
+Route::post('/loginadmincheck', [HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
-Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
-Route::post('/admin/logincheck',[HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/admin/logout',[HomeController::class, 'logout'])->name('admin_logout');
+Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
+Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
+Route::get('/admin/logout', [HomeController::class, 'logout'])->name('admin_logout');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -61,6 +62,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews', 'reviews')->name('reviews');
         Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+    });
+    //SHOPCART ROUTES
+    Route::prefix('/sepet')->name('shopcart.')->controller(ShopCartController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/oluştur', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/düzenle/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/detay/{id}', 'show')->name('show');
+        Route::get('/kaldır/{id}', 'destroy')->name('delete');
     });
     //ADMİN PANEL ROUTES
     Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {

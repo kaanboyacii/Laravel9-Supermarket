@@ -49,32 +49,33 @@
                         <i @if ($average==0) class="fa fa-star-o" @endif></i>
                         <i @if ($average>1 or $average==1) class="fa fa-star" @endif></i>
                         <i @if ($average>2 or $average==2) class="fa fa-star" @endif
-                        @if ($average<2) class="fa fa-star-o" @endif
-                        ></i>
+                            @if ($average<2) class="fa fa-star-o" @endif></i>
                         <i @if ($average>3 or $average==3) class="fa fa-star" @endif
-                        @if ($average<3) class="fa fa-star-o" @endif
-                        ></i>
+                            @if ($average<3) class="fa fa-star-o" @endif></i>
                         <i @if ($average>4 or $average==4) class="fa fa-star" @endif
-                        @if ($average<4) class="fa fa-star-o" @endif
-                        ></i>
+                            @if ($average<4) class="fa fa-star-o" @endif></i>
                         <i @if ($average>5 or $average==5) class="fa fa-star" @endif
-                        @if ($average<5) class="fa fa-star-o" @endif
-                        ></i>
+                            @if ($average<5) class="fa fa-star-o" @endif></i>
                         <span>({{$data->comment->count('id')}})</span>
                     </div>
                     <div class="product__details__price">{{$data->price}} ₺</div>
                     <p>{{$data->description}}</p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                    @include('home.messages')
+                    <form action="{{route('shopcart.store')}}" method="post">
+                        @csrf
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="number" name="quantity" value="1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#" class="primary-btn">SEPETE EKLE</a>
+                        <input type="hidden" name="product_id" value="{{$data->id}}">
+                        <button class="primary-btn" type="submit">SEPETE EKLE</button>
+                    </form>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Stok</b> <span>{{$data->quantity}}</span></li>
+                        <li><b>Stok</b> <span></span></li>
                         <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                         <li><b>Weight</b> <span>0.5 kg</span></li>
                         <li><b>Share on</b>
