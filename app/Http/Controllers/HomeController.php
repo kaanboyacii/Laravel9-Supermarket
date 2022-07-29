@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Comment;
+use App\Models\ShopCart;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,14 +29,13 @@ class HomeController extends Controller
         // $servicesx = DB::table('services')->where('category_id',$id)->get();
         $setting = Setting::first();
         $products = Product::where('category_id', $id)->get();
-        // dd($products);
         return view('home.categoryproducts', [
 
             'category' => $category,
             'categorylist' => $categorylist,
             'lastproducts' => $lastproducts,
             'products' => $products,
-            'setting' => $setting
+            'setting' => $setting,
         ]);
     }
 
@@ -43,11 +43,11 @@ class HomeController extends Controller
     {
         $sliderdata = Category::Where('parent_id', '=', 0)->get();
         $servicelist1 = Product::limit(18)->get();
-        $setting = Setting::first();
+        $shopcarttotal = ShopCart::where('user_id',Auth::id())->get();
         return view('home.index', [
             'sliderdata' => $sliderdata,
             'servicelist1' => $servicelist1,
-            'setting' => $setting
+            'shopcarttotal' => $shopcarttotal
         ]);
     }
     public function contact()
