@@ -71,6 +71,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/add/{id}', 'add')->name('add');
         Route::get('/kaldır/{id}', 'destroy')->name('delete');
+        Route::post('/order', 'order')->name('order');
+        Route::post('/storeorder', 'storeorder')->name('storeorder');
+        Route::get('/ordercomplete', 'ordercomplete')->name('ordercomplete');
     });
     //ADMİN PANEL ROUTES
     Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {

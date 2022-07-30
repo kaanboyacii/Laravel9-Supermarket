@@ -111,7 +111,10 @@
                         <li>Subtotal <span>{{$total}}₺</span></li>
                         <li>Total <span>{{$total}}₺</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Ödeme Adımına İlerle</a>
+                    <form action="{{route('shopcart.order')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="total" value="{{$total}}">
+                        <button class="primary-btn" type="submit" >Ödeme Adımına İlerle</button>
                 </div>
             </div>
             <div class="col-lg-6">
