@@ -9,24 +9,38 @@
             <a href="#"><img src="{{asset('assets')}}/img/izlogo.jpg" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            @auth
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    </ul>
+                    @php
+                    ($total =0)
+                    @endphp
+                    @foreach($shopcarttotal as $rs)
+                    @php
+                    ($total += $rs->product->price * $rs->quantity)
+                    @endphp
+                    @endforeach
+                    <div class="header__cart__price">Sepet Tutarı: <span>{{$total}}₺</span></div>
+                </div>
+            </div>
+            @endauth
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="img/language.png" alt="">
-                <div>English</div>
+                <div>Türkçe</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
+                    <li><a href="#">Türkçe</a></li>
+                    <li><a href="#">İngilizce</a></li>
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="loginuser"><i class="fa fa-user"></i> Üye Giriş</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -35,7 +49,7 @@
 
                 <li><a href="#">ALIŞVERİŞ</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="{{route('userpanel.index')}}">asdasd</a></li>
+                        <li><a href="kategoriürünleri/1">Alışverişe Başla</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
 
                     </ul>
@@ -46,10 +60,10 @@
                 <li><a href="{{route('userpanel.index')}}">HESABIM</a>
                     <ul class="header__menu__dropdown">
                         <li> @guest
-                            <a href="/loginuser">Login</a>
+                            <a href="/loginuser">Üye Giriş</a>
                         </li>
                         <li>
-                            <a href="/registeruser">Register</a>
+                            <a href="/registeruser">Üye Ol</a>
                             @endguest
                         </li>
                         <li> @auth
@@ -57,7 +71,7 @@
                             @endauth
                         </li>
                         <li> @auth
-                            <a href="/logoutuser">Logout</a>
+                            <a href="/logoutuser">Çıkış Yap</a>
                             @endauth
                         </li>
                     </ul>
@@ -110,7 +124,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i>Üye Giriş</a>
+                                <a href="/loginuser"><i class="fa fa-user"></i>Üye Giriş</a>
                             </div>
                         </div>
                     </div>
@@ -130,8 +144,7 @@
                             <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
                             <li><a href="#">ALIŞVERİŞ</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="/kategoriürünleri/1">Alışverişe Başla</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
@@ -140,10 +153,10 @@
                             <li><a href="#">HESABIM</a>
                                 <ul class="header__menu__dropdown">
                                     <li> @guest
-                                        <a href="/loginuser">Login</a>
+                                        <a href="/loginuser">Üye Girişi</a>
                                     </li>
                                     <li>
-                                        <a href="/registeruser">Register</a>
+                                        <a href="/registeruser">Üye Ol</a>
                                         @endguest
                                     </li>
                                     <li> @auth
@@ -151,7 +164,7 @@
                                         @endauth
                                     </li>
                                     <li> @auth
-                                        <a href="/logoutuser">Logout</a>
+                                        <a href="/logoutuser">Çıkış Yap</a>
                                         @endauth
                                     </li>
                                 </ul>
@@ -175,7 +188,6 @@
                         @endphp
                         @endforeach
                         <div class="header__cart__price">Sepet Tutarı: <span>{{$total}}₺</span></div>
-
                     </div>
                 </div>
                 @endauth
