@@ -69,7 +69,7 @@
                         </div>
                         <div class="checkout__input">
                             <p>Güvenlik Kodu (CVC)<span>*</span></p>
-                            <input type="text" name="cvcnumber" placeholder="***">
+                            <input type="tel" name="cvcnumber" maxlength="3" placeholder="***">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

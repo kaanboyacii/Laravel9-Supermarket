@@ -1,20 +1,5 @@
-<div class="col-lg-3 col-md-3 col-sm-6 text-center">
-    <div class="contact__widget">
-        <h4><a style="color:black;" href="{{route('userpanel.index')}}">Profilim</a></h4>
-    </div>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 text-center">
-    <div class="contact__widget">
-        <h4><a style="color:black;" href="{{route('profile.show')}}">Profil Detayları</a></h4>
-    </div>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 text-center">
-    <div class="contact__widget">
-        <h4><a style="color:black;" href="{{route('userpanel.reviews')}}">Yorumlarım ve İncelemelerim</a></h4>
-    </div>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 text-center">
-    <div class="contact__widget">
-        <h4><a style="color:black;" href="{{route('shopcart.index')}}">Sepetim</a></h4>
-    </div>
-</div>
+<li><a href="{{route('userpanel.index')}}">Profilim</a></li>
+<li><a href="{{route('profile.show')}}">Profil Detayları</a></li>
+<li><a href="{{route('userpanel.reviews')}}">Yorumlarım ve İncelemelerim</a></li>
+<li><a href="{{route('shopcart.index')}}">Sepetim</a></li>
+<li><a href="{{route('shopcart.index')}}">Geçmiş Siparişlerim</a></li>

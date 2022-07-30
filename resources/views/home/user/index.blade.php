@@ -16,37 +16,43 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-<section class="contact spad">
+<!-- Blog Section Begin -->
+<section class="blog spad">
     <div class="container">
         <div class="row">
-            @include('home.user.usermenu')
+            <div class="col-lg-3 col-md-5">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__item">
+                        <h4>İşlemlerim</h4>
+                        <ul>
+                            @include('home.user.usermenu')
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Last</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">E-posta Adresi</th>
+                            <td>{{Auth::user()->email}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">İsim</th>
+                            <td>{{Auth::user()->name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-warning" href="/user/profile">Bilgilerimi Güncelle</a>
+            </div>
         </div>
     </div>
 </section>
-<div class="col-lg-12 text-center">
-    <div class="container">
-        <div class="row">
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">E-posta Adresi</th>
-                        <td>{{Auth::user()->email}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">İsim</th>
-                        <td>{{Auth::user()->name}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <a class="btn btn-warning" href="/user/profile">Bilgilerimi Güncelle</a>
-        </div>
-    </div>
-</div>
-
+<!-- Blog Section End -->
 @endsection
