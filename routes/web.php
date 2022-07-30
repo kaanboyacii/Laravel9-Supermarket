@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews', 'reviews')->name('reviews');
         Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+        Route::get('/orders', 'orders')->name('orders');
+        Route::get('/orderdetail/{id}', 'orderdetail')->name('orderdetail');
     });
     //SHOPCART ROUTES
     Route::prefix('/sepet')->name('shopcart.')->controller(ShopCartController::class)->group(function () {

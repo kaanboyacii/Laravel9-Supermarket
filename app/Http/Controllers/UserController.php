@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Comment;
 use App\Models\Product;
+use App\Models\orderProduct;
+use App\Models\Order;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 
@@ -28,9 +30,9 @@ class UserController extends Controller
     public function reviews()
     {
         $setting = Setting::first();
-        $comments=Comment::where('user_id','=',Auth::id())->get();
-        return view('home.user.comments',[
-            'comments'=>$comments,
+        $comments = Comment::where('user_id', '=', Auth::id())->get();
+        return view('home.user.comments', [
+            'comments' => $comments,
             'setting' => $setting
         ]);
     }
@@ -41,9 +43,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function orders()
     {
-        //
+        $data = order::where('user_id', '=', Auth::id())->get();
+        return view('home.user.orders', [
+            'data' => $data
+        ]);
+    }
+    public function orderdetail($id)
+    {
+        $order = Order::find($id);
+        $orderproducts = orderProduct::where('order_id', '=', $id)->get();
+        return view('home.user.orderdetail', [
+            'order' => $order,
+            'orderproducts' => $orderproducts
+        ]);
     }
 
     /**
@@ -103,7 +117,7 @@ class UserController extends Controller
     }
     public function reviewdestroy($id)
     {
-        $data= Comment::find($id);
+        $data = Comment::find($id);
         $data->delete();
         return redirect(route('userpanel.reviews'));
     }

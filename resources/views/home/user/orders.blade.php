@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'Yorumlar ve İncelemeler')
+@section('title', 'Geçmiş Siparişlerim')
 
 @section('content')
 <!-- Breadcrumb Section Begin -->
@@ -16,6 +16,7 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
+<!-- Blog Section Begin -->
 <section class="blog spad">
     <div class="container">
         <div class="row">
@@ -30,7 +31,7 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9">
-                <h4 class="text-center">Yorumlarım ve İncelemelerim</h4> <br>
+            <h4 class="text-center">Geçmiş Siparişlerim</h4> <br>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -38,37 +39,36 @@
                                 Id
                             </th>
                             <th>
-                                Ürün
+                                İsim & Soyisim
                             </th>
                             <th>
-                                Konu
+                                Telefon
                             </th>
                             <th>
-                                Yorum
+                                E-posta
                             </th>
                             <th>
-                                Derecelendirme
-                                <br>(5 üzerinden)
+                                Adres
                             </th>
                             <th>
                                 Durum
                             </th>
                             <th>
-                                Kaldır
+                                Detay Göster
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($comments as $rs)
+                        @foreach($data as $rs)
                         <tr>
                             <td>{{$rs->id}}</td>
-                            <td><a href="{{route('product',['id'=>$rs->product_id])}}">{{$rs->product->title}}</a></td>
-                            <td>{{$rs->subject}}</td>
-                            <td>{{$rs->comment}}</td>
-                            <td>{{$rs->rate}}</td>
+                            <td>{{$rs->name}}</td>
+                            <td>{{$rs->phone}}</td>
+                            <td>{{$rs->email}}</td>
+                            <td>{{$rs->address}}</td>
                             <td>{{$rs->status}}</td>
                             <td>
-                                <a href="{{route('userpanel.reviewdestroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Siliniyor, Emin misiniz ?')">Kaldır</a>
+                                <a href="{{route('userpanel.orderdetail',['id'=>$rs->id])}}" class="btn btn-block btn-warning btn-sm">Detay Göster</a>
                             </td>
 
                         </tr>
@@ -79,4 +79,5 @@
         </div>
     </div>
 </section>
+<!-- Blog Section End -->
 @endsection
