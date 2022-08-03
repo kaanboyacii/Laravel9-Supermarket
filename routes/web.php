@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/ordercomplete', 'ordercomplete')->name('ordercomplete');
     });
     //ADMİN PANEL ROUTES
-    Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminHomeController::class, 'index'])->name('index');
         //ADMIN GENERAL ROUTES
         Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
