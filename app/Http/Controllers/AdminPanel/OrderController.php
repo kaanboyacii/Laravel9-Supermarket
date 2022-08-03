@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\OrderProduct;
 
 class OrderController extends Controller
 {
@@ -15,7 +16,7 @@ class OrderController extends Controller
      */
     public function index($slug)
     {
-        $data=Order::where('status','Yeni')->get();
+        $data=Order::where('status',$slug)->get();
         return view ('admin.order.index',[
             'data'=>$data
         ]);
@@ -50,18 +51,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $data=Order::find($id);
+        $datalist=OrderProduct::where('order_id',$id)->get();
+        return view ('admin.order.show',[
+            'data'=>$data,
+            'datalist'=>$datalist,
+        ]);
     }
 
     /**
@@ -73,7 +68,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=Order::find($id);
+        $data->status=$request->status;
+        $data->note=$request->note;
+        $data->save();
+        return redirect()->route('admin.order.show',['id'=>$id]);
     }
 
     /**

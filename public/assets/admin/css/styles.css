@@ -2835,3 +2835,48 @@ table.dataTable thead td {
 }
 
 /*-------------------- END Offset Sidebar ------------------- */
+.shoping__checkout {
+    background: #f5f5f5;
+    padding: 30px;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+
+.shoping__checkout h5 {
+    color: #1c1c1c;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 28px;
+}
+
+.shoping__checkout ul {
+    margin-bottom: 28px;
+}
+
+.shoping__checkout ul li {
+    font-size: 16px;
+    color: #1c1c1c;
+    font-weight: 700;
+    list-style: none;
+    overflow: hidden;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 13px;
+    margin-bottom: 18px;
+}
+
+.shoping__checkout ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.shoping__checkout ul li span {
+    font-size: 18px;
+    color: #dd2222;
+    float: right;
+}
+
+.shoping__checkout .primary-btn {
+    display: block;
+    text-align: center;
+}

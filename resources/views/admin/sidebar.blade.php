@@ -13,9 +13,9 @@
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Siparişler</span></a>
                                 <ul class="collapse">
                                     <li><a href="/admin/siparişler/yeni">Yeni Siparişler</a></li>
-                                    <li><a href="index2.html">Onaylanmış Siparişler</a></li>
-                                    <li><a href="index3.html">Tamamlanmış Siparişler</a></li>
-                                    <li><a href="index3.html">İptal Edilmiş Siparişler</a></li>
+                                    <li><a href="/admin/siparişler/onaylanmış">Onaylanmış Siparişler</a></li>
+                                    <li><a href="/admin/siparişler/tamamlanmış">Tamamlanmış Siparişler</a></li>
+                                    <li><a href="/admin/siparişler/reddedildi">İptal Edilmiş Siparişler</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('admin.category.index')}}"><i class="ti-layout-grid2"></i> <span>Kategoriler</span></a></li>

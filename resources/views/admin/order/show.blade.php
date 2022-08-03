@@ -1,6 +1,5 @@
 @extends('layouts.adminbase')
-
-@section('title', 'Ürün Detay')
+@section('title', 'Sipariş Detay')
 
 @section('content')
 <div class="main-content-inner">
@@ -21,32 +20,20 @@
                                             <td>{{$data->id}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Ürün</th>
-                                            <td>{{$data->product->title}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th style="width: 30px">İsim</th>
+                                            <th style="width: 30px">İsim & Soyisim</th>
                                             <td>{{$data->user->name}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Konu</th>
-                                            <td>{{$data->subject}}</td>
+                                            <th style="width: 30px">Telefon</th>
+                                            <td>{{$data->phone}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Yorum</th>
-                                            <td>{{$data->comment}}</td>
+                                            <th style="width: 30px">Adres</th>
+                                            <td>{{$data->address}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Derecelendirme</th>
-                                            <td>{{$data->rate}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th style="width: 30px">IP numarası</th>
-                                            <td>{{$data->IP}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th style="width: 30px">Durum</th>
-                                            <td>{{$data->status}}</td>
+                                            <th style="width: 30px">Tutar</th>
+                                            <td>{{ number_format($data->total, 2) }}₺</td>
                                         </tr>
                                         <tr>
                                             <th style="width: 30px">Oluşturulma Tarihi</th>
@@ -57,22 +44,64 @@
                                             <td>{{$data->updated_at}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Yönetici Notu:</th>
+                                            <th style="width: 30px">Durum:</th>
                                             <td>
-                                                <form role="form" action="{{route('admin.comment.update',['id'=>$data->id])}}" method="POST" class="forms-sample">
+                                                <form role="form" action="{{route('admin.order.update',['id'=>$data->id])}}" method="POST" class="forms-sample">
                                                     @csrf
-                                                    <select name="status" id="">
+                                                    <textarea name="note" cols="40" rows="2">{{$data->note}}
+                                                    </textarea>
+                                                    <br>
+                                                    <select name="status">
                                                         <option selected>{{$data->status}}</option>
-                                                        <option>Aktif</option>
-                                                        <option>Pasif</option>
+                                                        <option>Yeni</option>
+                                                        <option>Onaylanmış</option>
+                                                        <option>Tamamlanmış</option>
+                                                        <option>Reddedildi</option>
                                                     </select>
                                                     </textarea>
                                                     <div class="card-footer">
-                                                        <button type="submit" class="btn-primary">Durumu Güncelle</button>
+                                                        <button type="submit" class="btn-warning">Durumu Güncelle</button>
                                                     </div>
+                                                </form>
                                             </td>
                                         </tr>
                                     </table>
+                                    <table class="table text-center">
+                                        <thead class="text-uppercase bg-warning">
+                                            <tr class="text-white">
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Ürün</th>
+                                                <th scope="col">Fotoğraf</th>
+                                                <th scope="col">Ücret</th>
+                                                <th scope="col">Sipariş Miktar</th>
+                                                <th scope="col">Tutar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($datalist as $rs)
+                                            <tr>
+                                                <th scope="row">{{$rs->product->id}}</th>
+                                                <td>{{$rs->product->title}}</td>
+                                                <td>
+                                                    @if ($rs->product->image)
+                                                    <img src="{{Storage::url($rs->product->image)}}" style="height:50px ;width:50px; border-radius:2px">
+                                                    @endif
+                                                </td>
+                                                <td>{{$rs->product->price}}₺</td>
+                                                <td>{{$rs->quantity}} adet</td>
+                                                <td>{{$rs->amount}}₺</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <div class="col-lg-6 col-ml-6">
+                                        <div class="shoping__checkout">
+                                            <h5>Sepet Tutarı</h5>
+                                            <ul>
+                                                <li>Toplam Tutar <span>{{ number_format($data->total, 2) }}₺</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
