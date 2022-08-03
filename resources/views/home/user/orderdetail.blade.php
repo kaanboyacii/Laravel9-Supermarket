@@ -72,9 +72,11 @@
                             <th scope="col">ID</th>
                             <th scope="col">Ürün</th>
                             <th scope="col">Fotoğraf</th>
+                            <th scope="col">Durum</th>
                             <th scope="col">Ücret</th>
                             <th scope="col">Sipariş Miktar</th>
                             <th scope="col">Tutar</th>
+                            <th scope="col">Ürünü İptal Et</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,17 +89,27 @@
                                 <img src="{{Storage::url($rs->product->image)}}" style="height:50px ;width:50px; border-radius:2px">
                                 @endif
                             </td>
+                            <td>{{$rs->status}}</td>
                             <td>{{$rs->product->price}}₺</td>
                             <td>{{$rs->quantity}} adet</td>
                             <td>{{$rs->amount}}₺</td>
+                            <td><a style="color: black;" class="icon_close" href="{{route('userpanel.deleteproduct',['id'=>$rs->id])}}" , onclick="return confirm('İptal Etmek İçin Emin misiniz ?')"></a></td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                @php
+                ($order->total =0)
+                @endphp
+                @foreach($orderproducts as $rs)
+                @php
+                ($order->total += $rs->quantity * $rs->price)
+                @endphp
+                @endforeach
                 <div class="shoping__checkout">
                     <h5>Sepet Tutarı</h5>
                     <ul>
-                        <li>Toplam Tutar <span>{{$order->total}}₺</span></li>
+                        <li>Toplam Tutar <span>{{ number_format($order->total, 2) }}₺</span></li>
                     </ul>
                 </div>
             </div>

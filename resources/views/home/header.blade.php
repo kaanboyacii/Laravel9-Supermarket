@@ -187,7 +187,7 @@
                         ($total += $rs->product->price * $rs->quantity)
                         @endphp
                         @endforeach
-                        <div class="header__cart__price">Sepet Tutarı: <span>{{$total}}₺</span></div>
+                        <div class="header__cart__price">Sepet Tutarı: <span>{{ number_format($total, 2) }}₺</span></div>
                     </div>
                 </div>
                 @endauth

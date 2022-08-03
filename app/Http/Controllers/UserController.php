@@ -60,16 +60,13 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function deleteproduct($id)
     {
-        //
+        $data = OrderProduct::find($id);
+        $data->delete();
+        return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.

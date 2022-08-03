@@ -75,6 +75,27 @@ class OrderController extends Controller
         return redirect()->route('admin.order.show',['id'=>$id]);
     }
 
+    public function reject($id)
+    {
+        $data=Order::find($id);
+        $data->status='Reddedildi';
+        $data->save();
+        return redirect()->back();
+    }
+    public function acceptproduct($id)
+    {
+        $data=OrderProduct::find($id);
+        $data->status='Onaylandı';
+        $data->save();
+        return redirect()->back();
+    }
+    public function deleteproduct($id)
+    {
+        $data=OrderProduct::find($id);
+        $data->status='Reddedildi';
+        $data->save();
+        return redirect()->back();
+    }
     /**
      * Remove the specified resource from storage.
      *

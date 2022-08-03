@@ -89,6 +89,5 @@ class MessageController extends Controller
         Storage::delete("$data->image");
         $data->delete();
         return redirect(route('admin.message.index'));
-
     }
 }
