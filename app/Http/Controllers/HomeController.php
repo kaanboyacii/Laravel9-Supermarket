@@ -46,6 +46,7 @@ class HomeController extends Controller
         $servicelist1 = Product::limit(18)->get();
         $shopcarttotal = ShopCart::where('user_id', Auth::id())->get();
         $lastproducts = Product::limit(6)->latest()->get();
+        $lastfaqs = Faq::limit(3)->latest()->get();
         $mostsellerproducts = OrderProduct::select('product_id')
             ->groupBy('product_id')
             ->orderByRaw('COUNT(product_id) DESC')
@@ -61,6 +62,7 @@ class HomeController extends Controller
             'servicelist1' => $servicelist1,
             'shopcarttotal' => $shopcarttotal,
             'lastproducts' => $lastproducts,
+            'lastfaqs' => $lastfaqs,
             'mostsellerproducts' => $mostsellerproducts,
             'mosthasreviewproducts' => $mosthasreviewproducts
         ]);
