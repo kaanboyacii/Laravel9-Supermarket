@@ -23,7 +23,6 @@
                                                 <th scope="col">Telefon</th>
                                                 <th scope="col">E-posta</th>
                                                 <th scope="col">Adres</th>
-                                                <th scope="col">Tutar</th>
                                                 <th scope="col">Yönetici Notu</th>
                                                 <th scope="col">Durum</th>
                                                 <th scope="col">detay göster</th>
@@ -38,11 +37,10 @@
                                                 <td>{{$rs->phone}}</td>
                                                 <td>{{$rs->email}}</td>
                                                 <td>{{$rs->address}}</td>
-                                                <td>{{ number_format($rs->total, 2) }}₺</td>
                                                 <td>{{$rs->note}}</td>
                                                 <td>{{$rs->status}}</td>
                                                 <td><a class="ti-info-alt" href="{{route('admin.order.show',['id'=>$rs->id])}}"></a></td>
-                                                <td><a class="ti-trash" href="{{route('admin.comment.destroy',['id'=>$rs->id])}}" , onclick="return confirm('Silmek İçin Emin misiniz ?')"></a></td>
+                                                <td><a class="ti-trash" href="{{route('admin.order.reject',['id'=>$rs->id])}}" , onclick="return confirm('İptal Etmek İçin Emin misiniz ?')"></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

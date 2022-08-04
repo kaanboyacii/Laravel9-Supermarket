@@ -75,6 +75,9 @@
                                                 <th scope="col">Ücret</th>
                                                 <th scope="col">Sipariş Miktar</th>
                                                 <th scope="col">Tutar</th>
+                                                <th scope="col">Durum</th>
+                                                <th scope="col">Ürünü Onayla</th>
+                                                <th scope="col">Ürünü İptal et</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -90,10 +93,21 @@
                                                 <td>{{$rs->product->price}}₺</td>
                                                 <td>{{$rs->quantity}} adet</td>
                                                 <td>{{$rs->amount}}₺</td>
+                                                <td>{{$rs->status}}</td>
+                                                <td><a class="ti-check" href="{{route('admin.order.acceptproduct',['id'=>$rs->id])}}" , onclick="return confirm('Ürünü Onaylamak İçin Emin misiniz ?')"></a></td>
+                                                <td><a class="ti-trash" href="{{route('admin.order.deleteproduct',['id'=>$rs->id])}}" , onclick="return confirm('İptal Etmek İçin Emin misiniz ?')"></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @php
+                                    ($data->total =0)
+                                    @endphp
+                                    @foreach($datalist as $rs)
+                                    @php
+                                    ($data->total += $rs->quantity * $rs->price)
+                                    @endphp
+                                    @endforeach
                                     <div class="col-lg-6 col-ml-6">
                                         <div class="shoping__checkout">
                                             <h5>Sepet Tutarı</h5>

@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
         Route::get('/orders', 'orders')->name('orders');
         Route::get('/orderdetail/{id}', 'orderdetail')->name('orderdetail');
+        Route::get('/deleteproduct/{id}','deleteproduct')->name('deleteproduct');
     });
     //SHOPCART ROUTES
     Route::prefix('/sepet')->name('shopcart.')->controller(ShopCartController::class)->group(function () {
@@ -150,6 +151,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/reject/{id}','reject')->name('reject');
             Route::post('/update/{id}','update')->name('update');
             Route::get('/show/{id}','show')->name('show');
+            Route::get('/deleteproduct/{id}','deleteproduct')->name('deleteproduct');
+            Route::get('/acceptproduct/{id}','acceptproduct')->name('acceptproduct');
         });
     }); //admin panel routes
 }); //user auth group
