@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\OrderProduct;
 
 class HomeController extends Controller
 {
@@ -43,11 +44,20 @@ class HomeController extends Controller
     {
         $sliderdata = Category::Where('parent_id', '=', 0)->get();
         $servicelist1 = Product::limit(18)->get();
-        $shopcarttotal = ShopCart::where('user_id',Auth::id())->get();
+        $shopcarttotal = ShopCart::where('user_id', Auth::id())->get();
+        $lastproducts = Product::limit(6)->latest()->get();
+        // $mostsellerproducts = OrderProduct::orderBy('product_id', 'desc')->limit(3)->get();
+        $mostsellerproducts = OrderProduct::select('product_id')
+            ->groupBy('product_id')
+            ->orderByRaw('COUNT(product_id) DESC')
+            ->limit(6)
+            ->get();
         return view('home.index', [
             'sliderdata' => $sliderdata,
             'servicelist1' => $servicelist1,
-            'shopcarttotal' => $shopcarttotal
+            'shopcarttotal' => $shopcarttotal,
+            'lastproducts' => $lastproducts,
+            'mostsellerproducts' => $mostsellerproducts
         ]);
     }
     public function contact()
