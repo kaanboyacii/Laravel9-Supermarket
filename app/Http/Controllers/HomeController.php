@@ -46,8 +46,12 @@ class HomeController extends Controller
         $servicelist1 = Product::limit(18)->get();
         $shopcarttotal = ShopCart::where('user_id', Auth::id())->get();
         $lastproducts = Product::limit(6)->latest()->get();
-        // $mostsellerproducts = OrderProduct::orderBy('product_id', 'desc')->limit(3)->get();
         $mostsellerproducts = OrderProduct::select('product_id')
+            ->groupBy('product_id')
+            ->orderByRaw('COUNT(product_id) DESC')
+            ->limit(6)
+            ->get();
+        $mosthasreviewproducts = Comment::select('product_id')
             ->groupBy('product_id')
             ->orderByRaw('COUNT(product_id) DESC')
             ->limit(6)
@@ -57,7 +61,8 @@ class HomeController extends Controller
             'servicelist1' => $servicelist1,
             'shopcarttotal' => $shopcarttotal,
             'lastproducts' => $lastproducts,
-            'mostsellerproducts' => $mostsellerproducts
+            'mostsellerproducts' => $mostsellerproducts,
+            'mosthasreviewproducts' => $mosthasreviewproducts
         ]);
     }
     public function contact()
