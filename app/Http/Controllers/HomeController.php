@@ -29,13 +29,17 @@ class HomeController extends Controller
         $lastproducts = Product::limit(6)->latest()->get();
         // $servicesx = DB::table('services')->where('category_id',$id)->get();
         $setting = Setting::first();
-        $products = Product::where('category_id', $id)->get();
+        $productscount = Product::where('category_id', $id)->get();
+        $discountproducts = Product::where('category_id', $id)->limit(6)->get();
+        $products = Product::where('category_id', $id)->paginate(6)->withQueryString();
         return view('home.categoryproducts', [
 
             'category' => $category,
             'categorylist' => $categorylist,
             'lastproducts' => $lastproducts,
+            'productscount' => $productscount,
             'products' => $products,
+            'discountproducts' => $discountproducts,
             'setting' => $setting,
         ]);
     }

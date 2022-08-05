@@ -16,13 +16,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>Sayfalarımız</h6>
                         <ul>
                             <li><a href="{{route('home')}}">Anasayfa</a></li>
                             <li><a href="{{route('about')}}">Hakkımızda</a></li>
                             <li><a href="{{route('contact')}}">İletişim</a></li>
                             <li><a href="{{route('faq')}}">Sıkça Sorulan Sorular</a></li>
-                            <li><a href="{{route('personaldata')}}">Gizlilik İlkeleri</a></li>
+                            <li><a href="{{route('personaldata')}}">Kişisel Verilerin Korunması</a></li>
                         </ul>
                         <ul>
                             <li><a href="/loginuser">Üye Giriş</a></li>

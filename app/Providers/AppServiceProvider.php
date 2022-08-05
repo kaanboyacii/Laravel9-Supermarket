@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\ShopCart;
 use App\Models\Setting;
 use App\Http\View\Composer\shopcartcomposer;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
         // Use following code if you prefer to create a class
         // Based view composer otherwise use callback
         View::composer('post.list', PostComposer::class);
