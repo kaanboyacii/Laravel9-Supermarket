@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Comment;
+use App\Models\FavoriteProduct;
 use App\Models\Product;
 use App\Models\orderProduct;
 use App\Models\Order;
@@ -34,6 +35,13 @@ class UserController extends Controller
         return view('home.user.comments', [
             'comments' => $comments,
             'setting' => $setting
+        ]);
+    }
+    public function favoriteproduct()
+    {
+        $favproducts = FavoriteProduct::where('user_id', '=', Auth::id())->get();
+        return view('home.user.favoriteproduct', [
+            'favproducts' => $favproducts
         ]);
     }
 

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\FavoriteProduct;
 use App\Models\OrderProduct;
 
 class HomeController extends Controller
@@ -32,6 +33,7 @@ class HomeController extends Controller
         $productscount = Product::where('category_id', $id)->get();
         $discountproducts = Product::where('category_id', $id)->limit(6)->get();
         $products = Product::where('category_id', $id)->paginate(6)->withQueryString();
+        $favproducts = FavoriteProduct::where('user_id', '=', Auth::id())->get();
         return view('home.categoryproducts', [
 
             'category' => $category,
@@ -41,6 +43,7 @@ class HomeController extends Controller
             'products' => $products,
             'discountproducts' => $discountproducts,
             'setting' => $setting,
+            'favproducts' => $favproducts
         ]);
     }
 
@@ -128,17 +131,34 @@ class HomeController extends Controller
         return redirect()->route('product', ['id' => $request->input('product_id')])->with('success', 'Yorumunuz Gönderildi, Teşekkür Ederiz');
     }
 
+    public function storefavorite($id)
+    {
+        $data = FavoriteProduct::where('product_id', $id)->where('user_id', Auth::id())->first(); //check product for user
+        if (Auth::user()) {
+            redirect('/');
+        } else {
+            $data = new FavoriteProduct();
+            $data->product_id = $id;
+            $data->user_id = Auth::id();
+        }
+
+        $data->save();
+        return redirect()->back()->with('info', 'Ürün Favorilere Eklendi');
+    }
+
     public function product($id)
     {
         $data = product::find($id);
         $setting = Setting::first();
         $images = DB::table('images')->where('product_id', $id)->get();
         $reviews = Comment::where('product_id', $id)->where('status', 'aktif')->get();
+        $favproducts = FavoriteProduct::where('user_id', '=', Auth::id())->get();
         return view('home.product', [
             'data' => $data,
             'images' => $images,
             'setting' => $setting,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'favproducts' => $favproducts,
         ]);
     }
 
