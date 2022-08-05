@@ -56,6 +56,7 @@ Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('sto
 Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
 Route::get('/hakkımızda', [HomeController::class, 'about'])->name('about');
 Route::get('/sıkçasorulansorular', [HomeController::class, 'faq'])->name('faq');
+Route::get('/kişiselverilerinkorunması', [HomeController::class, 'personaldata'])->name('personaldata');
 
 Route::middleware('auth')->group(function () {
     //USER ROUTES

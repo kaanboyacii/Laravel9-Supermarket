@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="referans-tab" data-toggle="tab" href="#referans" role="tab" aria-controls="referans" aria-selected="false">Referanslarımız</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="kişisel-tab" data-toggle="tab" href="#kişisel" role="tab" aria-controls="kişisel" aria-selected="false">Kişisel Verilerin Korunması Hakkında</a>
+                    </li>
                 </ul>
                 <form role="form" action="{{route('admin.settingupdate')}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -57,7 +60,7 @@
                                 <input type="Description" class="form-control" id="exampleInputName1" name="phone" value="{{$data->phone}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputName1">Email</label>
+                                <label for="exampleInputName1">E-posta Adresi</label>
                                 <input type="Description" class="form-control" id="exampleInputName1" name="email" value="{{$data->email}}">
                             </div>
                             <div class="form-group">
@@ -161,6 +164,24 @@
                                 <script>
                                     ClassicEditor
                                         .create(document.querySelector('#references'))
+                                        .then(editor => {
+                                            console.log(editor);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kişisel" role="tabpanel" aria-labelledby="kişisel-tab">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Kişisel Verilerin Korunması Hakkında</label>
+                                <textarea class="form-control" id="personaldata" name="personaldata" value="{{$data->personaldata}} placeholder=" personaldata">
+                                {{$data->personaldata}}
+                                </textarea>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#personaldata'))
                                         .then(editor => {
                                             console.log(editor);
                                         })

@@ -22,7 +22,7 @@
                             <li><a href="{{route('about')}}">Hakkımızda</a></li>
                             <li><a href="{{route('contact')}}">İletişim</a></li>
                             <li><a href="{{route('faq')}}">Sıkça Sorulan Sorular</a></li>
-                            <li><a href="#">Gizlilik İlkeleri</a></li>
+                            <li><a href="{{route('personaldata')}}">Gizlilik İlkeleri</a></li>
                         </ul>
                         <ul>
                             <li><a href="/loginuser">Üye Giriş</a></li>

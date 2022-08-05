@@ -81,6 +81,13 @@ class HomeController extends Controller
             'setting' => $setting
         ]);
     }
+    public function personaldata()
+    {
+        $personaldata = Setting::first();
+        return view('home.personaldata', [
+            'personaldata' => $personaldata
+        ]);
+    }
     public function faq()
     {
         $setting = Setting::first();
