@@ -115,7 +115,7 @@
                     </div>
                     <div class="featured__item__text">
                         <h6><a href="{{route('product',['id'=>$rs->id])}}">{{$rs->title}}</a></h6>
-                        <h5>{{$rs->price}}₺</h5>
+                        <h5>{{ number_format($rs->price, 2) }}₺</h5>
                     </div>
                 </div>
             </div>

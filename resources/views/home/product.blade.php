@@ -58,7 +58,7 @@
                             @if ($average<5) class="fa fa-star-o" @endif></i>
                         <span>({{$data->comment->count('id')}})</span>
                     </div>
-                    <div class="product__details__price">{{$data->price}} ₺</div>
+                    <div class="product__details__price">{{ number_format($data->price, 2) }} ₺</div>
                     <p>{{$data->description}}</p>
                     @include('home.messages')
                     <form action="{{route('shopcart.store')}}" method="post">
@@ -76,9 +76,7 @@
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Stok</b> <span>{{$data->quantity}}</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
-                        <li><b>Share on</b>
+                        <li><b>Paylaş</b>
                             <div class="share">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>

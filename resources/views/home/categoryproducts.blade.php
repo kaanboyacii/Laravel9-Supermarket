@@ -33,45 +33,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar__item sidebar__item__color--option">
-                        <h4>Renk</h4>
-                        <div class="sidebar__item__color sidebar__item__color--white">
-                            <label for="white">
-                                Beyaz
-                                <input type="radio" id="white">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__color sidebar__item__color--gray">
-                            <label for="gray">
-                                Gri
-                                <input type="radio" id="gray">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__color sidebar__item__color--red">
-                            <label for="red">
-                                Kırmızı
-                                <input type="radio" id="red">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__color sidebar__item__color--black">
-                            <label for="black">
-                                Siyah
-                                <input type="radio" id="black">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__color sidebar__item__color--blue">
-                            <label for="blue">
-                                Mavi
-                                <input type="radio" id="blue">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__color sidebar__item__color--green">
-                            <label for="green">
-                                Yeşil
-                                <input type="radio" id="green">
-                            </label>
-                        </div>
-                    </div>
                     <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Yeni Ürünler</h4>
@@ -84,7 +45,7 @@
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6>{{$rs->title}}</h6>
-                                            <span>{{$rs->price}}₺</span>
+                                            <span>{{ number_format($rs->price, 2) }}₺</span>
                                         </div>
                                     </a>
                                 </div>
@@ -115,7 +76,7 @@
                                     <div class="product__discount__item__text">
                                         <span>{{$rs->category->title}}</span>
                                         <h5><a href="{{route('product',['id'=>$rs->id])}}">{{$rs->title}}</a></h5>
-                                        <div class="product__item__price">{{$rs->price}}₺ <span>{{$rs->price*1.20}}₺</span></div>
+                                        <div class="product__item__price">{{ number_format($rs->price, 2) }}₺<span>{{$rs->price*1.20}}₺</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +122,7 @@
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="{{route('product',['id'=>$rs->id])}}">{{$rs->title}}</a></h6>
-                                <h5>{{$rs->price}}₺</h5>
+                                <h5>{{ number_format($rs->price, 2) }}₺</h5>
                             </div>
                         </div>
 
