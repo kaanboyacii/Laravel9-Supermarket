@@ -27,4 +27,8 @@ class Product extends Model
     {
         return $this->hasMany(orderproduct::class);
     }
+    public function favoriteproduct()
+    {
+        return $this->hasMany(FavoriteProduct::class);
+    }
 }
