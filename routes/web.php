@@ -59,6 +59,7 @@ Route::get('/sıkçasorulansorular', [HomeController::class, 'faq'])->name('faq'
 Route::get('/kişiselverilerinkorunması', [HomeController::class, 'personaldata'])->name('personaldata');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/storefavorite/{id}',[HomeController::class, 'storefavorite'])->name('storefavorite');
     //USER ROUTES
     Route::prefix('userpanel')->name('userpanel.')->controller(App\Http\Controllers\UserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
@@ -67,6 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/orders', 'orders')->name('orders');
         Route::get('/orderdetail/{id}', 'orderdetail')->name('orderdetail');
         Route::get('/deleteproduct/{id}','deleteproduct')->name('deleteproduct');
+        Route::get('/favori-ürünlerim', 'favoriteproduct')->name('favoriteproduct');
     });
     //SHOPCART ROUTES
     Route::prefix('/sepet')->name('shopcart.')->controller(ShopCartController::class)->group(function () {
