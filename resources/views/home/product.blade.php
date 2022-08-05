@@ -73,7 +73,7 @@
                         <input type="hidden" name="product_id" value="{{$data->id}}">
                         <button class="primary-btn" type="submit">SEPETE EKLE</button>
                     </form>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    <a href="{{route('storefavorite',['id'=>$data->id])}}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Stok</b> <span>{{$data->quantity}}</span></li>
                         <li><b>Paylaş</b>

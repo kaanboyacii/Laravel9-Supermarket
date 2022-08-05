@@ -68,7 +68,7 @@
                                     <div class="product__discount__item__pic set-bg" data-setbg="{{ Storage::url("{$rs->image}") }}">
                                         <div class="product__discount__percent">-20%</div>
                                         <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="{{route('storefavorite',['id'=>$rs->id])}}"><i class="fa fa-heart"></i></a></li>
                                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                             <li><a href="{{route('shopcart.add',['id'=>$rs->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -114,7 +114,7 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{ Storage::url("{$rs->image}") }}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="{{route('storefavorite',['id'=>$rs->id])}}"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                     <li><a href="{{route('shopcart.add',['id'=>$rs->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
