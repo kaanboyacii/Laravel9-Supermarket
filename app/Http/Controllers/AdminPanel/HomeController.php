@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,9 +18,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $orders = Order::all();
+        $orderproducts = OrderProduct::all();
+        $productscount = count($orderproducts);
+        return view('admin.index', [
+            'orders' => $orders,
+            'orderproducts' => $orderproducts,
+            'productscount' => $productscount,
+        ]);
     }
-
+    public function orders()
+    {
+        $data = order::where('user_id', '=', Auth::id())->get();
+        return view('home.user.orders', [
+            'data' => $data
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
