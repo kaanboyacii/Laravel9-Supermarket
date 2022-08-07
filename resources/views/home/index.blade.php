@@ -34,10 +34,6 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                            <div class="hero__search__categories">
-                                Tüm Kategoriler
-                                <span class="arrow_carrot-down"></span>
-                            </div>
                             <form action="{{route('getproduct')}}" method="POST">
                                 @csrf
                                 @livewire('search')
