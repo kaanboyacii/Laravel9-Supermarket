@@ -34,14 +34,16 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
                             <div class="hero__search__categories">
                                 Tüm Kategoriler
                                 <span class="arrow_carrot-down"></span>
                             </div>
-                            <input type="text" placeholder="Neye İhtiyacınız Var ?">
-                            <button type="submit" class="site-btn">ARA</button>
-                        </form>
+                            <form action="{{route('getproduct')}}" method="POST">
+                                @csrf
+                                @livewire('search')
+                                <button type="submit" class="site-btn">ARA</button>
+                            </form>
+                            @livewireScripts
                     </div>
                     <div class="hero__search__phone">
                         <div class="hero__search__phone__icon">

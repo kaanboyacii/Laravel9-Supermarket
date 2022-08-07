@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -16,7 +15,6 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -26,7 +24,9 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -58,28 +58,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-    public function reviews()
-    {
-        return $this->hasMany(Comment::class);
-    }
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class,'role_users');
-    }
-    public function shopcart()
-    {
-        return $this->hasMany(ShopCart::class);
-    }
-    public function order()
-    {
-        return $this->hasMany(Order::class);
-    }
-    public function orderproducts()
-    {
-        return $this->hasMany(OrderProduct::class);
-    }
-    public function favoriteproduct()
-    {
-        return $this->hasMany(FavoriteProduct::class);
-    }
 }

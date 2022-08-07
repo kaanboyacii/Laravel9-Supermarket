@@ -57,6 +57,8 @@ Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('sto
 Route::get('/hakkımızda', [HomeController::class, 'about'])->name('about');
 Route::get('/sıkçasorulansorular', [HomeController::class, 'faq'])->name('faq');
 Route::get('/kişiselverilerinkorunması', [HomeController::class, 'personaldata'])->name('personaldata');
+Route::post('/getproduct', [HomeController::class, 'getproduct'])->name('getproduct');
+Route::get('/productlist/{search}', [HomeController::class, 'productlist'])->name('productlist');
 
 Route::middleware('auth')->group(function () {
     Route::get('/storefavorite/{id}',[HomeController::class, 'storefavorite'])->name('storefavorite');

@@ -156,6 +156,23 @@ class HomeController extends Controller
             'favproducts' => $favproducts,
         ]);
     }
+    public function getproduct(Request $request)
+    {
+        $search = $request->input('search');
+        $count = Product::where('title', 'like', '%' . $search . '%')->get()->count();
+        if ($count == 1) {
+            $data = Product::where('title', 'like', '%' . $search . '%')->first();
+            return redirect()->route('product', ['id' => $data->id, 'slug' => $data->slug]);
+        }
+        else{
+            return redirect()->route('productlist', ['search' =>$search]);
+        }
+    }
+    public function productlist($search){
+        $datalist=Product::where('title','like','%'.$search.'%')->get();
+        return view('home.search_products',['search'=>$search,'datalist'=>$datalist]);
+    }
+
 
     public function login()
     {
