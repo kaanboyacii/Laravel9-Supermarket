@@ -134,14 +134,9 @@ class HomeController extends Controller
     public function storefavorite($id)
     {
         $data = FavoriteProduct::where('product_id', $id)->where('user_id', Auth::id())->first(); //check product for user
-        if (Auth::user()) {
-            redirect('/');
-        } else {
-            $data = new FavoriteProduct();
-            $data->product_id = $id;
-            $data->user_id = Auth::id();
-        }
-
+        $data = new FavoriteProduct();
+        $data->product_id = $id;
+        $data->user_id = Auth::id();
         $data->save();
         return redirect()->back()->with('info', 'Ürün Favorilere Eklendi');
     }

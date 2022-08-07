@@ -47,11 +47,9 @@
             <ul>
                 <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
 
-                <li><a href="#">ALIŞVERİŞ</a>
+                <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="kategoriürünleri/1">Alışverişe Başla</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-
                     </ul>
                 </li>
                 <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
@@ -142,7 +140,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
-                            <li><a href="#">ALIŞVERİŞ</a>
+                            <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="/kategoriürünleri/1">Alışverişe Başla</a></li>
                                 </ul>
