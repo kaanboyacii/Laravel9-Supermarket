@@ -126,6 +126,7 @@ class HomeController extends Controller
         $data->subject = $request->input('subject');
         $data->comment = $request->input('comment');
         $data->rate = $request->input('rate');
+        $data->status = 'Yeni';
         $data->ip = request()->ip();
         $data->save();
         return redirect()->route('product', ['id' => $request->input('product_id')])->with('success', 'Yorumunuz Gönderildi, Teşekkür Ederiz');

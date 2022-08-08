@@ -24,69 +24,30 @@
                             <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
                             <li class="dropdown">
                                 <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
-                                    <span>2</span>
+                                    <span>{{$newcomments->count()}}</span>
                                 </i>
                                 <div class="dropdown-menu bell-notify-box notify-box">
-                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <span class="notify-title">Yeni {{$newcomments->count()}} Bildiriminiz Var ! <a href="{{route('admin.comment.index')}}">Hepsini incele</a></span>
                                     <div class="nofity-list">
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                        @foreach($newcomments as $rs)
+                                        <a href="{{route('admin.comment.show',['id'=>$rs->id])}}" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comment-alt btn-danger"></i></div>
                                             <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
+                                                <p>{{$rs->user->name}}</p>
+                                                <span>{{$rs->product->title}}</span> <br>
+                                                <span>{{$rs->subject}}</span>
                                             </div>
                                         </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
-                                            <div class="notify-text">
-                                                <p>New Commetns On Post</p>
-                                                <span>30 Seconds ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
-                                            <div class="notify-text">
-                                                <p>Some special like you</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
-                                            <div class="notify-text">
-                                                <p>New Commetns On Post</p>
-                                                <span>30 Seconds ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
-                                            <div class="notify-text">
-                                                <p>Some special like you</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </li>
                             <li class="dropdown">
-                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>{{$messages->count()}}</span></i>
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>{{$newmessages->count()}}</span></i>
                                 <div class="dropdown-menu notify-box nt-enveloper-box">
-                                    <span class="notify-title">YENİ {{$messages->count()}} MESAJINIZ VAR !<a href="{{route('admin.message.index')}}">Hepsini incele</a></span>
+                                    <span class="notify-title">Yeni {{$newmessages->count()}} Mesajınız Var !<a href="{{route('admin.message.index')}}">Hepsini incele</a></span>
                                     <div class="nofity-list">
-                                    @foreach($messages as $rs)
+                                        @foreach($newmessages as $rs)
                                         <a href="{{route('admin.message.show',['id'=>$rs->id])}}" class="notify-item">
                                             <div class="notify-thumb">
                                                 <img src="{{asset('assets')}}/admin/images/author/author-img3.jpg" alt="image">
@@ -97,7 +58,7 @@
                                                 <span>{{$rs->created_at}}</span>
                                             </div>
                                         </a>
-                                    @endforeach
+                                        @endforeach
                                     </div>
                                 </div>
                             </li>

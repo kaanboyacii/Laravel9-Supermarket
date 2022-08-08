@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\ShopCart;
 use App\Models\Setting;
 use App\Http\View\Composer\shopcartcomposer;
+use App\Models\Comment;
 use App\Models\Message;
 use Illuminate\Pagination\Paginator;
 
@@ -46,8 +47,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('shopcarttotal',  $shopcarttotal);
             $setting = Setting::first();
             $view->with('setting',  $setting);
-            $messages = Message::where('status', 'Yeni')->get();
-            $view->with('messages',  $messages);
+            $newmessages = Message::where('status', 'Yeni')->get();
+            $view->with('newmessages',  $newmessages);
+            $newcomments = Comment::where('status', 'Yeni')->get();
+            $view->with('newcomments',  $newcomments);
         });
     }
 }

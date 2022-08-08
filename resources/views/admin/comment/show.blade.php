@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Ürün Detay</h4>
+                            <h4 class="header-title">Yorum Detay</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-hover">
@@ -57,7 +57,7 @@
                                             <td>{{$data->updated_at}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Yönetici Notu:</th>
+                                            <th style="width: 30px">Durum Güncelleme:</th>
                                             <td>
                                                 <form role="form" action="{{route('admin.comment.update',['id'=>$data->id])}}" method="POST" class="forms-sample">
                                                     @csrf
