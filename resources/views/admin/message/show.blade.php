@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Ürün Detay</h4>
+                            <h4 class="header-title">Mesaj Detay</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-hover">
@@ -41,8 +41,19 @@
                                             <td>{{$data->message}}</td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 30px">Durum</th>
-                                            <td>{{$data->status}}</td>
+                                        <th style="width: 30px">Durum Güncelle:</th>
+                                            <td>
+                                                <form role="form" action="{{route('admin.message.update',['id'=>$data->id])}}" method="POST" class="forms-sample">
+                                                    @csrf
+                                                    <select name="status" id="">
+                                                        <option selected>{{$data->status}}</option>
+                                                        <option>Yeni</option>
+                                                        <option>Okundu</option>
+                                                    </select>
+                                                    <div class="card-footer">
+                                                        <button type="submit" class="btn-primary">Durumu Güncelle</button>
+                                                    </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th scope="col">Oluşturulma Tarihi</th>

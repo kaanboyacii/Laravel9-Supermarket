@@ -44,7 +44,6 @@ class MessageController extends Controller
     public function show($id)
     {
         $data= Message::find($id);
-        $data->status='Read';
         $data->save();
         return view('admin.message.show',[
             'data'=>$data
@@ -72,6 +71,7 @@ class MessageController extends Controller
     public function update(Request $request, $id)
     {
         $data=Message::find($id);
+        $data->status=$request->status;
         $data->note=$request->note;
         $data->save();
         return redirect(route('admin.message.show',['id'=>$data->id]));
