@@ -153,7 +153,7 @@
                     <div class="latest-product__slider owl-carousel">
                         @foreach($lastproducts as $rs)
                         <div class="latest-prdouct__slider__item">
-                            <a href="#" class="latest-product__item">
+                            <a href="{{route('product',['id'=>$rs->id])}}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{ Storage::url("{$rs->image}") }}" />
                                 </div>
@@ -173,7 +173,7 @@
                     <div class="latest-product__slider owl-carousel">
                         @foreach($mostsellerproducts as $rs)
                         <div class="latest-prdouct__slider__item">
-                            <a href="#" class="latest-product__item">
+                            <a href="{{route('product',['id'=>$rs->product->id])}}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{Storage::url($rs->product->image)}}" alt="">
                                 </div>
@@ -193,7 +193,7 @@
                     <div class="latest-product__slider owl-carousel">
                         @foreach($mosthasreviewproducts as $rs)
                         <div class="latest-prdouct__slider__item">
-                            <a href="#" class="latest-product__item">
+                            <a href="{{route('product',['id'=>$rs->product->id])}}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{Storage::url($rs->product->image)}}" alt="">
                                 </div>
@@ -230,7 +230,7 @@
                         <ul>
                             <li><i class="fa fa-calendar-o"></i> {{$rs->created_at->format('m/d/Y')}}</li>
                         </ul>
-                        <h5><a href="#">{{$rs->question}}</a></h5>
+                        <h5>{{$rs->question}}</h5>
                         <p>{!!$rs->answer!!}</p>
                     </div>
                 </div>
