@@ -9,7 +9,9 @@ use App\Models\ShopCart;
 use App\Models\Setting;
 use App\Http\View\Composer\shopcartcomposer;
 use App\Models\Comment;
+use App\Models\FavoriteProduct;
 use App\Models\Message;
+use App\Models\OrderProduct;
 use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
@@ -51,6 +53,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('newmessages',  $newmessages);
             $newcomments = Comment::where('status', 'Yeni')->get();
             $view->with('newcomments',  $newcomments);
+            $favproducts = FavoriteProduct::where('user_id', '=', Auth::id())->get();
+            $view->with('favproducts',  $favproducts);
+            $orderproducts = OrderProduct::where('user_id', '=', Auth::id())->get();
+            $view->with('orderproducts',  $orderproducts);
         });
     }
 }

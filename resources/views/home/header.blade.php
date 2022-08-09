@@ -174,8 +174,8 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="{{route('userpanel.favoriteproduct')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('userpanel.favoriteproduct')}}"><i class="fa fa-heart"></i> <span>{{$favproducts->count()}}</span></a></li>
+                            <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$orderproducts->count()}}</span></a></li>
                         </ul>
                         @php
                         ($total =0)
