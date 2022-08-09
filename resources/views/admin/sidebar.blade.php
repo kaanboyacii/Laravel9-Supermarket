@@ -26,15 +26,6 @@
                             <li><a href="{{route('admin.faq.index')}}"><i class="ti-help"></i> <span>Sıkça Sorulan Sorular</span></a></li>
                             <li><a href="{{route('admin.setting')}}"><i class="ti-settings"></i> <span>Ayarlar</span></a></li>
                             <li><a href="{{route('admin.user.index')}}"><i class="ti-user"></i> <span>Kullanıcılar</span></a></li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
-                                    <span>Tables</span></a>
-                                <ul class="collapse">
-                                    <li><a href="table-basic.html">basic table</a></li>
-                                    <li><a href="table-layout.html">table layout</a></li>
-                                    <li><a href="datatable.html">datatable</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </nav>
                 </div>
