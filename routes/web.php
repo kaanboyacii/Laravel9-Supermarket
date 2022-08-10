@@ -62,6 +62,7 @@ Route::get('/productlist/{search}', [HomeController::class, 'productlist'])->nam
 
 Route::middleware('auth')->group(function () {
     Route::get('/storefavorite/{id}',[HomeController::class, 'storefavorite'])->name('storefavorite');
+    Route::get('/destroyfavorite/{id}',[HomeController::class, 'destroyfavorite'])->name('destroyfavorite');
     //USER ROUTES
     Route::prefix('userpanel')->name('userpanel.')->controller(App\Http\Controllers\UserController::class)->group(function () {
         Route::get('/', 'index')->name('index');

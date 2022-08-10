@@ -64,6 +64,7 @@
                                         {{ number_format($rs->product->price, 2) }}₺
                                     </td>
                                     <td class="shoping__cart__item__close">
+                                        <a style="color: black;" class="icon_close" href="{{route('destroyfavorite',['id'=>$rs->id])}}" , onclick="return confirm('İptal Etmek İçin Emin misiniz ?')"></a>
                                     </td>
                                 </tr>
                                 @endforeach

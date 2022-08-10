@@ -141,6 +141,12 @@ class HomeController extends Controller
         $data->save();
         return redirect()->back()->with('info', 'Ürün Favorilere Eklendi');
     }
+    public function destroyfavorite($id)
+    {
+        $data=FavoriteProduct::find($id);;
+        $data->delete();
+        return redirect()->back()->with('info', 'Ürün Favorilerden Silindi');
+    }
 
     public function product($id)
     {
