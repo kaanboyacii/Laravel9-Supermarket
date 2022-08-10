@@ -1,3 +1,11 @@
+Homepage preview video:
+
+https://www.youtube.com/watch?v=3nAU5TuAggE
+
+AdminPanel preview video:
+
+https://www.youtube.com/watch?v=9vlQwsTh-OM
+
 1-Setup (install/create) Database and PHP server.
 
 2-Install Composer
