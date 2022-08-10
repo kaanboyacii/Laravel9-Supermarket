@@ -1,6 +1,7 @@
 Homepage preview video:
 
-https://www.youtube.com/watch?v=3nAU5TuAggE
+https://user-images.githubusercontent.com/98668706/183854715-204b34fd-58fc-4b0f-9480-8be2e245a217.mp4
+
 
 AdminPanel preview video:
 
