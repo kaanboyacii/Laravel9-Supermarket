@@ -66,7 +66,7 @@
                                         <h5><a style="color: black;" href="{{route('product',['id'=>$rs->product_id])}}">{{$rs->product->title}}</a></h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        {{$rs->product->price}}₺
+                                        {{ number_format($rs->product->price, 2) }}₺
                                     </td>
                                     <form action="{{route('shopcart.update',['id'=>$rs->id])}}" method="post">
                                         @csrf
@@ -79,7 +79,7 @@
                                     </form>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        {{$rs->product->price * $rs->quantity}}₺
+                                    {{ number_format($rs->product->price * $rs->quantity, 2)}}₺
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <a style="color: black;" class="icon_close" href="{{route('shopcart.destroy',['id'=>$rs->id])}}" , onclick="return confirm('Silmek İçin Emin misiniz ?')"></a>
@@ -104,8 +104,7 @@
                             <div class="shoping__checkout">
                                 <h5>Sepet Tutarı</h5>
                                 <ul>
-                                    <li>Subtotal <span>{{$total}}₺</span></li>
-                                    <li>Total <span>{{$total}}₺</span></li>
+                                    <li>Toplam Tutar <span>{{ number_format($total, 2) }}₺</span></li>
                                 </ul>
                                 <form action="{{route('shopcart.order')}}" method="post">
                                     @csrf

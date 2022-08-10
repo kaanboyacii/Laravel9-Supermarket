@@ -78,11 +78,11 @@
                             <div class="checkout__order__products">Ürünler & Adet<span>Fiyat</span></div>
                             <ul>
                                 @foreach($data as $rs)
-                                <li>{{$rs->product->title}} x {{$rs->quantity}}<span>{{$rs->product->price}}₺</span></li>
+                                <li>{{$rs->product->title}} x {{$rs->quantity}}<span> {{ number_format($rs->product->price, 2) }}₺</span></li>
                                 @endforeach
                             </ul>
-                            <div class="checkout__order__subtotal">Toplam <span>{{$total}}₺</span></div>
-                            <div class="checkout__order__total">Sipariş Toplam Tutarı <span>{{$total}}₺</span></div>                          
+                            <div class="checkout__order__subtotal">Toplam <span>  {{ number_format($total, 2) }}₺</span></div>
+                            <div class="checkout__order__total">Sipariş Toplam Tutarı <span>  {{ number_format($total, 2) }}₺</span></div>                          
                             <button type="submit" class="site-btn">SİPARİŞİ TAMAMLA</button>
                         </div>
                     </div>
