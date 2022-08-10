@@ -93,9 +93,9 @@
                                 @endif
                             </td>
                             <td>{{$rs->status}}</td>
-                            <td>{{$rs->product->price}}₺</td>
+                            <td>{{ number_format($rs->product->price, 2) }}₺</td>
                             <td>{{$rs->quantity}} adet</td>
-                            <td>{{$rs->amount}}₺</td>
+                            <td> {{ number_format($rs->amount, 2) }}₺</td>
                             <td><a style="color: black;" class="icon_close" href="{{route('userpanel.deleteproduct',['id'=>$rs->id])}}" , onclick="return confirm('İptal Etmek İçin Emin misiniz ?')"></a></td>
                         </tr>
                         @endforeach
