@@ -55,7 +55,7 @@
                     <div class="hero__text">
                         <span>Hızlı Teslimat</span>
                         <h2>En Ekonomik <br />En Kaliteli Ürünler</h2>
-                        <a href="#" class="primary-btn">Alışverişe Başla</a>
+                        <a href="kategoriürünleri/1" class="primary-btn">Alışverişe Başla</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,6 @@
                     <div class="featured__item__pic set-bg" data-setbg="{{ Storage::url("{$rs->image}") }}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="{{route('storefavorite',['id'=>$rs->id])}}"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                             <li><a href="{{route('shopcart.add',['id'=>$rs->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>

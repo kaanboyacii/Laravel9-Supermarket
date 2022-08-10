@@ -140,11 +140,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
-                            <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="/kategoriürünleri/1">Alışverişe Başla</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a></li>
                             <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
                             <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                             <li><a href="{{route('faq')}}">SSS</a></li>
