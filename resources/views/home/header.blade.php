@@ -116,7 +116,7 @@
                             <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
                             <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                             <li><a href="{{route('faq')}}">SSS</a></li>
-                            <li><a href="#">HESABIM</a>
+                            <li><a href="{{route('userpanel.index')}}">HESABIM</a>
                                 <ul class="header__menu__dropdown">
                                     <li> @guest
                                         <a href="/loginuser">Üye Girişi</a>
