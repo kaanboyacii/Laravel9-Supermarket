@@ -61,7 +61,7 @@
                         </div>
                         <div class="checkout__input">
                             <p>Kart Numarası<span>*</span></p>
-                            <input name="cardnumber" type="tel" maxlength="19" placeholder="Card Number">
+                            <input name="cardnumber" type="tel" maxlength="19" placeholder="Kart Numarası">
                         </div>
                         <div class="checkout__input">
                             <p>Son Kullanma Tarihi<span>*</span></p>

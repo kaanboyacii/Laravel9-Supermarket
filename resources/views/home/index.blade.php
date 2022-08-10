@@ -90,14 +90,6 @@
                 <div class="section-title">
                     <h2>En Çok Satan Ürünlerimiz</h2>
                 </div>
-                <div class="featured__controls">
-                    <ul>
-                        <li class="active" data-filter="*">Hepsi</li>
-                        @foreach($sliderdata as $rs)
-                        <li data-filter=".oranges">{{$rs->title}}</li>
-                        @endforeach
-                    </ul>
-                </div>
             </div>
         </div>
         @include('home.messages')

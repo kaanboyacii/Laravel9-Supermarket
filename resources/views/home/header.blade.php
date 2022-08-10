@@ -13,8 +13,8 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="{{route('userpanel.favoriteproduct')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="{{route('userpanel.favoriteproduct')}}"><i class="fa fa-heart"></i> <span>{{$favproducts->count()}}</span></a></li>
+                        <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
                     </ul>
                     @php
                     ($total =0)
@@ -30,15 +30,6 @@
             @endauth
         </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>Türkçe</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Türkçe</a></li>
-                    <li><a href="#">İngilizce</a></li>
-                </ul>
-            </div>
             <div class="header__top__right__auth">
                 <a href="loginuser"><i class="fa fa-user"></i> Üye Giriş</a>
             </div>
@@ -47,11 +38,7 @@
             <ul>
                 <li class="active"><a href="{{route('home')}}">ANASAYFA</a></li>
 
-                <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="kategoriürünleri/1">Alışverişe Başla</a></li>
-                    </ul>
-                </li>
+                <li><a href="kategoriürünleri/1">ALIŞVERİŞ</a></li>
                 <li><a href="{{route('contact')}}">İLETİŞİM</a></li>
                 <li><a href="{{route('about')}}">HAKKIMIZDA</a></li>
                 <li><a href="{{route('faq')}}">SSS</a></li>
@@ -83,12 +70,6 @@
             <a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a>
             <a href="{{$setting->youtube}}"><i class="fa fa-youtube"></i></a>
         </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
     </div>
     <!-- Humberger End -->
     <!-- Header Section Begin -->
@@ -111,15 +92,6 @@
                                 <a href="{{$setting->instagram}}"><i class="fa fa-instagram"></i></a>
                                 <a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a>
                                 <a href="{{$setting->youtube}}"><i class="fa fa-youtube"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>Dil Seçeneği</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Türkçe</a></li>
-                                    <li><a href="#">İngilizce</a></li>
-                                </ul>
                             </div>
                             <div class="header__top__right__auth">
                                 <a href="/loginuser"><i class="fa fa-user"></i>Üye Giriş</a>
@@ -171,7 +143,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="{{route('userpanel.favoriteproduct')}}"><i class="fa fa-heart"></i> <span>{{$favproducts->count()}}</span></a></li>
-                            <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$orderproducts->count()}}</span></a></li>
+                            <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                         @php
                         ($total =0)

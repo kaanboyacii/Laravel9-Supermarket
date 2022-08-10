@@ -95,20 +95,10 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="shoping__cart__btns">
-                                <a href="#" class="primary-btn cart-btn">Alışverişe Devam Et</a>
+                                <a href="{{route('home')}}" class="primary-btn cart-btn">Alışverişe Devam Et</a>
                                 <!-- <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Sepeti Güncelle</a> -->
                             </div>
-                            <div class="shoping__continue">
-                                <div class="shoping__discount">
-                                    <h5>İndirim kodları</h5>
-                                    <form action="#">
-                                        <input type="text" placeholder="Kupon Kodunuz Giriniz">
-                                        <button type="submit" class="site-btn">Kuponu Uygula</button>
-                                    </form>
-                                </div>
-                            </div>
-
                         </div>
                         <div class="col-lg-6">
                             <div class="shoping__checkout">
