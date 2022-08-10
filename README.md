@@ -1,7 +1,8 @@
+![hompage](https://user-images.githubusercontent.com/98668706/183855814-e2006ecf-d700-4885-8d90-280115bbe37d.png)
+
 Homepage preview video:
 
-https://user-images.githubusercontent.com/98668706/183854715-204b34fd-58fc-4b0f-9480-8be2e245a217.mp4
-
+https://www.youtube.com/watch?v=3nAU5TuAggE&t=1s
 
 AdminPanel preview video:
 
